@@ -1,21 +1,25 @@
-// Accordion for FAQ
+// Portfolio specific logic: filtering, advanced lightbox, etc.
 (function(){
-  const qsa = (s, ctx=document)=>Array.from(ctx.querySelectorAll(s));
-  qsa('.faq-q').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const parent = btn.parentElement;
-      const open = parent.classList.toggle('open');
-      const content = parent.querySelector('.faq-a');
-      if(open){
-        content.style.maxHeight = content.scrollHeight + 'px';
-        btn.querySelector('.chev').textContent = '−';
-      } else {
-        content.style.maxHeight = null;
-        btn.querySelector('.chev').textContent = '+';
-      }
+  "use strict";
+
+  // If we want to add filtering in the future, it would go here.
+  console.log("Portfolio module loaded");
+
+  // Project filtering logic (placeholder)
+  const filters = document.querySelectorAll('.portfolio-filter');
+  const items = document.querySelectorAll('.portfolio-item');
+
+  filters.forEach(filter => {
+    filter.addEventListener('click', () => {
+      const category = filter.getAttribute('data-category');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
     });
-    // ensure initial height
-    const content = btn.parentElement.querySelector('.faq-a');
-    content.style.maxHeight = null;
   });
+
 })();

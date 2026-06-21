@@ -16,14 +16,19 @@
   });
 
   // Year in footer
-  qsa('[id^="year"]').forEach(el=>el.textContent = new Date().getFullYear());
+  const currentYear = new Date().getFullYear();
+  qsa('[id^="year"]').forEach(el=>el.textContent = currentYear);
+  // Also handle ids like year-1, year-2 etc.
+  qsa('[id^="year-"]').forEach(el=>el.textContent = currentYear);
 
   // Hamburger menu toggle for mobile
-  const hamburger = qs('#hamburger') || qs('.hamburger');
-  hamburger && hamburger.addEventListener('click', ()=>{
-    document.body.classList.toggle('nav-open');
-    const nav = qs('.main-nav');
-    if(nav) nav.style.display = nav.style.display === 'flex' ? '' : 'flex';
+  const hamburgers = qsa('.hamburger');
+  hamburgers.forEach(hamburger => {
+    hamburger.addEventListener('click', ()=>{
+      document.body.classList.toggle('nav-open');
+      const nav = qs('.main-nav');
+      if(nav) nav.style.display = nav.style.display === 'flex' ? '' : 'flex';
+    });
   });
 
   // Sticky header hide/show on scroll
