@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Funex Studio</title>
+  <meta name="description" content="Featured cinematic work from Funex Studio — music videos, reels, and ads." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script defer src="js/app.js"></script>
+  <script defer src="js/portfolio.js"></script>
+</head>
+<body class="site-dark">
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logos/logo.svg" alt="Funex Studio logo" class="logo-svg">
+        <span class="brand-text">FUNEX STUDIO</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="order.html" class="btn btn-accent">Start Project</a>
+        <button class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero-sm container">
+      <h1 class="section-title">Portfolio</h1>
+      <p class="section-sub">Selected edits that demonstrate craft, color and cinematic intent.</p>
+    </section>
+
+    <section class="section container">
+      <div class="portfolio-grid">
+        <article class="portfolio-item" data-video="videos/project-1.mp4">
+          <img src="images/project-1.svg" alt="Project 1">
+          <div class="item-meta">
+            <h4>Project — Coming Soon</h4>
+            <button class="btn btn-ghost play-item">Play</button>
+          </div>
+        </article>
+
+        <article class="portfolio-item" data-video="">
+          <img src="images/project-2.svg" alt="Project 2">
+          <div class="item-meta">
+            <h4>Project — Coming Soon</h4>
+            <button class="btn btn-ghost play-item">Play</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h3 class="section-title">Color grading showcase</h3>
+      <div class="before-after-wrap small">
+        <div class="before-after" id="pa-before-after">
+          <img src="images/before.jpg" alt="Before grade" class="ba-img before">
+          <img src="images/after.jpg" alt="After grade" class="ba-img after">
+          <div class="ba-slider" id="pa-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+        <div class="brand-text-compact">
+          <strong>FUNEX STUDIO</strong>
+        </div>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+      </nav>
+
+      <div class="footer-legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <p class="copyright">© <span id="year-3"></span> Funex Studio</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="video-modal" class="modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true">
+      <button class="modal-close" aria-label="Close video">×</button>
+      <div class="modal-media">
+        <video controls playsinline id="modal-video-2" poster="images/hero-poster.svg">
+          <source src="" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
