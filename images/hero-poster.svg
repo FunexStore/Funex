@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Hero poster">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#0f0e0e"/>
+      <stop offset="1" stop-color="#141212"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g1)"/>
+  <g transform="translate(120,120)">
+    <rect width="1360" height="660" rx="20" fill="#171717" opacity=".9"/>
+    <text x="60" y="300" font-family="Inter, sans-serif" font-weight="700" font-size="56" fill="#C39A6B">Turning Imaginations</text>
+    <text x="60" y="370" font-family="Inter, sans-serif" font-weight="400" font-size="28" fill="#E4C9A8">Into Reality — Funex Studio</text>
+  </g>
+</svg>
