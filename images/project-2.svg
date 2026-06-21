@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#121212"/>
+  <g transform="translate(64,64)">
+    <rect width="1072" height="592" rx="12" fill="#171717"/>
+    <text x="80" y="320" font-family="Inter, sans-serif" font-size="48" fill="#E4C9A8">Project • Coming Soon</text>
+  </g>
+</svg>
