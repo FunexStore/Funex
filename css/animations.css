@@ -11,4 +11,4 @@
 .preloader-inner{opacity:0;animation:fadeInUp .8s ease .1s both}
 .floating-card{animation:floaty 6s ease-in-out infinite}
 .section-title{animation:fadeInUp .6s ease both}
-.service-card, .project-card, .pricing-card{transition:transform .28s ease, box-shadow .28s ease}
+/* Transitions are now handled in style.css for more granularity */
