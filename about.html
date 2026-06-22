@@ -7,33 +7,41 @@
   <meta name="description" content="About Funex Studio — a creative studio focused on cinematic storytelling and premium creative execution." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
   <script defer src="js/app.js"></script>
 </head>
 <body class="site-dark">
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="nav-inner">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="Funex Studio home">
         <img src="images/logos/logo.svg" alt="Funex Studio logo" class="logo-svg">
         <span class="brand-text">FUNEX STUDIO</span>
       </a>
 
-      <nav class="main-nav">
+      <nav class="main-nav" id="main-nav">
+        <div class="mobile-nav-header">
+          <a class="brand" href="index.html">
+            <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+            <span class="brand-text">FUNEX STUDIO</span>
+          </a>
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+        </div>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
+        <div class="mobile-nav-footer">
+          <a href="order.html" class="btn btn-accent">Start Project</a>
+        </div>
       </nav>
 
       <div class="nav-cta">
-        <a href="order.html" class="btn btn-accent">Start Project</a>
-        <button class="hamburger" aria-label="Open menu">
+        <a href="order.html" class="btn btn-accent desktop-only">Start Project</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -42,39 +50,41 @@
 
   <main>
     <section class="section hero-sm container">
-      <h1 class="section-title">About Funex Studio</h1>
-      <p class="section-sub">Cinematic craft, premium delivery — a creative studio that builds narrative-first content for culture and commerce.</p>
+      <div class="section-header">
+        <h1 class="reveal">About Funex Studio</h1>
+        <p class="reveal">Cinematic craft, premium delivery — a creative studio that builds narrative-first content for culture and commerce.</p>
+      </div>
     </section>
 
     <section class="section container">
-      <div class="about-grid">
-        <div class="about-text">
+      <div class="content-narrow">
+        <div class="glass reveal p-6 mb-4">
           <h3>Story</h3>
           <p>Funex Studio is a compact creative studio balancing technical craft with cinematic storytelling. We work with artists, creators and brands to transform raw vision into polished, platform-ready work.</p>
 
-          <h3>Mission</h3>
+          <h3 class="mt-4">Mission</h3>
           <p>To deliver cinematic, high-impact content that communicates identity and emotion.</p>
 
-          <h3>Philosophy</h3>
+          <h3 class="mt-4">Philosophy</h3>
           <p>We design edits, not just timelines. Every cut, grade and mix serves story and mood — so final work feels intentional and distinctive.</p>
         </div>
 
-        <aside class="about-meta">
+        <div class="glass reveal p-6">
           <h4>Workflow</h4>
-          <ul>
-            <li>Brief & references</li>
-            <li>Upload assets</li>
-            <li>Draft edit</li>
-            <li>Feedback loop</li>
+          <ul class="mt-4 mb-4 list-disc">
+            <li class="mb-2">Brief & references</li>
+            <li class="mb-2">Upload assets</li>
+            <li class="mb-2">Draft edit</li>
+            <li class="mb-2">Feedback loop</li>
             <li>Final deliverables</li>
           </ul>
 
-          <h4>Software & Tools</h4>
+          <h4 class="mt-4">Software & Tools</h4>
           <p>Premiere Pro, DaVinci Resolve, After Effects, Pro Tools, Ableton, Logic Pro.</p>
 
-          <h4>Creative Process</h4>
+          <h4 class="mt-4">Creative Process</h4>
           <p>Brief → Concept → Edit → Grade → Deliver. Each step prioritizes clarity, tone and cinematic intent.</p>
-        </aside>
+        </div>
       </div>
     </section>
   </main>
@@ -83,18 +93,28 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
-        <div class="brand-text-compact"><strong>FUNEX STUDIO</strong></div>
+        <div class="brand-text-compact">
+          <strong>FUNEX STUDIO</strong>
+          <small>Turning Imaginations Into Reality</small>
+        </div>
       </div>
 
       <nav class="footer-nav">
+        <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="portfolio.html">Portfolio</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
 
       <div class="footer-legal">
         <a href="privacy-policy.html">Privacy Policy</a>
-        <p class="copyright">© <span id="year-5"></span> Funex Studio</p>
+        <a href="refund-policy.html">Refund Policy</a>
+        <a href="delivery-policy.html">Delivery Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+        <p class="copyright">© <span id="year"></span> Funex Studio. All rights reserved.</p>
       </div>
     </div>
   </footer>

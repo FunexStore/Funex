@@ -7,32 +7,41 @@
   <meta name="description" content="Contact Funex Studio for projects, quotes, and collaboration." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
   <script defer src="js/app.js"></script>
 </head>
 <body class="site-dark">
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="nav-inner">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="Funex Studio home">
         <img src="images/logos/logo.svg" alt="Funex Studio logo" class="logo-svg">
         <span class="brand-text">FUNEX STUDIO</span>
       </a>
-      <nav class="main-nav">
+
+      <nav class="main-nav" id="main-nav">
+        <div class="mobile-nav-header">
+          <a class="brand" href="index.html">
+            <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+            <span class="brand-text">FUNEX STUDIO</span>
+          </a>
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+        </div>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
         </ul>
+        <div class="mobile-nav-footer">
+          <a href="order.html" class="btn btn-accent">Start Project</a>
+        </div>
       </nav>
 
       <div class="nav-cta">
-        <a href="order.html" class="btn btn-accent">Start Project</a>
-        <button class="hamburger" aria-label="Open menu">
+        <a href="order.html" class="btn btn-accent desktop-only">Start Project</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -41,39 +50,47 @@
 
   <main>
     <section class="section hero-sm container">
-      <h1 class="section-title">Contact</h1>
-      <p class="section-sub">Start a conversation about your project — we reply quickly.</p>
+      <div class="section-header">
+        <h1 class="reveal">Contact</h1>
+        <p class="reveal">Start a conversation about your project — we reply quickly.</p>
+      </div>
     </section>
 
-    <section class="section container contact-grid">
-      <div class="contact-info">
-        <h3>Get in touch</h3>
-        <p>Email: <a href="mailto:5awaixai@gmail.com">5awaixai@gmail.com</a></p>
-        <p>WhatsApp: <a href="https://wa.me/917023551413">+91 70235 51413</a></p>
-        <p>Instagram: <a href="https://instagram.com/5awai_" target="_blank" rel="noopener">@5awai_</a></p>
-        <p>We generally reply within 24 hours.</p>
-      </div>
-
-      <form id="contact-form" class="contact-form" action="thank-you.html" method="get" novalidate>
-        <label>
-          <span>Name</span>
-          <input name="name" type="text" required>
-        </label>
-
-        <label>
-          <span>Email</span>
-          <input name="email" type="email" required>
-        </label>
-
-        <label>
-          <span>Message</span>
-          <textarea name="message" rows="6" required></textarea>
-        </label>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn-accent">Send Message</button>
+    <section class="section container">
+      <div class="grid-1-2-3">
+        <div class="glass reveal p-6">
+          <h3>Get in touch</h3>
+          <p class="mt-4">Email: <a href="mailto:5awaixai@gmail.com">5awaixai@gmail.com</a></p>
+          <p>WhatsApp: <a href="https://wa.me/917023551413">+91 70235 51413</a></p>
+          <p>Instagram: <a href="https://instagram.com/5awai_" target="_blank" rel="noopener">@5awai_</a></p>
+          <p class="mt-4 text-accent text-sm">We generally reply within 24 hours.</p>
         </div>
-      </form>
+
+        <div class="glass reveal p-6 col-span-2">
+          <form id="contact-form" class="contact-form" action="thank-you.html" method="get" novalidate>
+            <div class="form-grid">
+              <label class="form-label">
+                <span class="form-label-text">Name</span>
+                <input name="name" type="text" required class="form-input">
+              </label>
+
+              <label class="form-label">
+                <span class="form-label-text">Email</span>
+                <input name="email" type="email" required class="form-input">
+              </label>
+
+              <label class="form-label">
+                <span class="form-label-text">Message</span>
+                <textarea name="message" rows="6" required class="form-input form-textarea"></textarea>
+              </label>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-accent">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -81,17 +98,28 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
-        <div class="brand-text-compact"><strong>FUNEX STUDIO</strong></div>
+        <div class="brand-text-compact">
+          <strong>FUNEX STUDIO</strong>
+          <small>Turning Imaginations Into Reality</small>
+        </div>
       </div>
 
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
       <div class="footer-legal">
         <a href="privacy-policy.html">Privacy Policy</a>
-        <p class="copyright">© <span id="year-7"></span> Funex Studio</p>
+        <a href="refund-policy.html">Refund Policy</a>
+        <a href="delivery-policy.html">Delivery Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+        <p class="copyright">© <span id="year"></span> Funex Studio. All rights reserved.</p>
       </div>
     </div>
   </footer>
