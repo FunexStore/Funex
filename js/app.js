@@ -21,6 +21,62 @@
   // Also handle ids like year-1, year-2 etc.
   qsa('[id^="year-"]').forEach(el=>el.textContent = currentYear);
 
+  // Theme Toggle (Dark/Light Mode)
+  const initTheme = () => {
+    const themeBtn = document.createElement('button');
+    themeBtn.className = 'theme-toggle';
+    themeBtn.innerHTML = '🌓';
+    themeBtn.setAttribute('aria-label', 'Toggle theme');
+
+    // Add to main-nav ul
+    const navUl = qs('.main-nav ul');
+    if(navUl) {
+      const li = document.createElement('li');
+      li.appendChild(themeBtn);
+      navUl.appendChild(li);
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  };
+  initTheme();
+
+  // Header Logic (Home vs Inner Pages)
+  const initHeader = () => {
+    const header = qs('#site-header');
+    if(!header) return;
+
+    const path = window.location.pathname;
+    const isHome = path === '/' || path.endsWith('index.html') || path === '';
+
+    if(!isHome) {
+      header.classList.add('inner-page');
+      // Prepend back link if it doesn't exist
+      if(!qs('.back-link', header)) {
+        const backLink = document.createElement('div');
+        backLink.className = 'back-link';
+        backLink.innerHTML = '←';
+        backLink.addEventListener('click', () => {
+          if (document.referrer.includes(window.location.host)) {
+            history.back();
+          } else {
+            window.location.href = 'index.html';
+          }
+        });
+        const navInner = qs('.nav-inner', header);
+        navInner.insertBefore(backLink, navInner.firstChild);
+      }
+    }
+  };
+  initHeader();
+
   // Hamburger menu toggle for mobile
   const hamburgers = qsa('.hamburger');
   const navCloses = qsa('.nav-close');

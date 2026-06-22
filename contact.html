@@ -4,11 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact — Funex Studio</title>
-  <meta name="description" content="Contact Funex Studio for projects, quotes, and collaboration." />
+  <meta name="description" content="Start your cinematic project with Funex Studio. We reply quickly to all inquiries." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script defer src="js/app.js"></script>
 </head>
 <body class="site-dark">
@@ -29,20 +27,14 @@
         </div>
         <ul>
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="work.html" class="nav-link">Work</a></li>
+          <li><a href="services-pricing.html" class="nav-link">Services & Pricing</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="faq.html" class="nav-link">FAQ</a></li>
           <li><a href="contact.html" class="nav-link active">Contact</a></li>
         </ul>
-        <div class="mobile-nav-footer">
-          <a href="order.html" class="btn btn-accent">Start Project</a>
-        </div>
       </nav>
 
       <div class="nav-cta">
-        <a href="order.html" class="btn btn-accent desktop-only">Start Project</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -53,44 +45,60 @@
   <main>
     <section class="section hero-sm container">
       <div class="section-header">
-        <h1 class="reveal">Contact</h1>
-        <p class="reveal">Start a conversation about your project — we reply quickly.</p>
+        <h1 class="reveal">Start Project</h1>
+        <p class="reveal">Tell us about your vision. We'll handle the cinematic execution.</p>
       </div>
     </section>
 
     <section class="section container">
-      <div class="grid-1-2-3">
+      <div class="content-narrow">
         <div class="glass reveal p-6">
-          <h3>Get in touch</h3>
-          <p class="mt-4">Email: <a href="mailto:5awaixai@gmail.com">5awaixai@gmail.com</a></p>
-          <p>WhatsApp: <a href="https://wa.me/917023551413">+91 70235 51413</a></p>
-          <p>Instagram: <a href="https://instagram.com/5awai_" target="_blank" rel="noopener">@5awai_</a></p>
-          <p class="mt-4 text-accent text-sm">We generally reply within 24 hours.</p>
-        </div>
+          <form action="https://formsubmit.co/5awaixai@gmail.com" method="POST" class="contact-form">
+            <!-- Honeypot -->
+            <input type="text" name="_honey" style="display:none">
+            <!-- Success Redirect -->
+            <input type="hidden" name="_next" value="https://funexstudio.com/thank-you.html">
 
-        <div class="glass reveal p-6 col-span-2">
-          <form id="contact-form" class="contact-form">
-            <div class="form-grid">
+            <div class="form-grid-2">
               <label class="form-label">
                 <span class="form-label-text">Name</span>
-                <input name="name" type="text" required class="form-input">
+                <input name="name" type="text" required class="form-input" placeholder="Your Name">
               </label>
 
               <label class="form-label">
                 <span class="form-label-text">Email</span>
-                <input name="email" type="email" required class="form-input">
+                <input name="email" type="email" required class="form-input" placeholder="email@example.com">
               </label>
 
-              <label class="form-label">
+              <label class="form-label col-span-full">
+                <span class="form-label-text">Project Type</span>
+                <select name="project_type" required class="form-input">
+                  <option value="">Select a service...</option>
+                  <option value="Music Video">Music Video</option>
+                  <option value="YouTube">YouTube Video</option>
+                  <option value="Reels/Shorts">Reels & Shorts</option>
+                  <option value="Podcast">Podcast</option>
+                  <option value="Color Grading">Color Grading</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+
+              <label class="form-label col-span-full">
                 <span class="form-label-text">Message</span>
-                <textarea name="message" rows="6" required class="form-input form-textarea"></textarea>
+                <textarea name="message" rows="6" required class="form-input form-textarea" placeholder="Describe your vision..."></textarea>
               </label>
 
-              <div class="form-actions">
-                <button type="submit" class="btn btn-accent">Send Message</button>
+              <div class="form-actions col-span-full mt-4">
+                <button type="submit" class="btn btn-accent w-full">Start Project</button>
               </div>
             </div>
           </form>
+        </div>
+
+        <div class="mt-8 text-center reveal">
+          <p class="text-dim">Or reach out directly:</p>
+          <p class="mt-2">Email: <a href="mailto:5awaixai@gmail.com" class="text-accent">5awaixai@gmail.com</a></p>
+          <p>WhatsApp: <a href="https://wa.me/917023551413" class="text-accent">+91 70235 51413</a></p>
         </div>
       </div>
     </section>
@@ -108,11 +116,9 @@
 
       <nav class="footer-nav">
         <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="pricing.html">Pricing</a>
+        <a href="work.html">Work</a>
+        <a href="services-pricing.html">Services & Pricing</a>
         <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
 
