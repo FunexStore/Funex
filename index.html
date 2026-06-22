@@ -8,8 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
   <script defer src="js/app.js"></script>
   <script defer src="js/portfolio.js"></script>
   <script defer src="js/faq.js"></script>
@@ -30,6 +28,13 @@
       </a>
 
       <nav class="main-nav" id="main-nav">
+        <div class="mobile-nav-header">
+          <a class="brand" href="index.html">
+            <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+            <span class="brand-text">FUNEX STUDIO</span>
+          </a>
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+        </div>
         <ul>
           <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
@@ -39,10 +44,13 @@
           <li><a href="faq.html" class="nav-link">FAQ</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
+        <div class="mobile-nav-footer">
+          <a href="order.html" class="btn btn-accent">Start Project</a>
+        </div>
       </nav>
 
       <div class="nav-cta">
-        <a href="order.html" class="btn btn-accent">Start Project</a>
+        <a href="order.html" class="btn btn-accent desktop-only">Start Project</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -51,7 +59,7 @@
   </header>
 
   <main>
-    <section class="hero full-viewport" id="hero">
+    <section class="hero" id="hero">
       <div class="hero-media">
         <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1920&q=80">
           <source src="https://videos.pexels.com/video-files/3125907/3125907-uhd_2560_1440_25fps.mp4" type="video/mp4">
@@ -60,59 +68,75 @@
       </div>
 
       <div class="hero-content container">
-        <div class="hero-left">
-          <h1 class="hero-title">Turning Imaginations Into Reality</h1>
-          <p class="hero-sub">Music Videos • YouTube Videos • Reels • Podcasts • Color Grading</p>
-          <div class="hero-actions">
-            <a class="btn btn-ghost" href="portfolio.html">View Portfolio</a>
-            <a class="btn btn-accent" href="order.html">Start Project</a>
-          </div>
+        <h1 class="hero-title reveal">Turning Imaginations Into Reality</h1>
+        <p class="hero-sub reveal">Music Videos • YouTube Videos • Reels • Podcasts • Color Grading</p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-accent" href="order.html">Start Project</a>
+          <a class="btn btn-ghost" href="portfolio.html">View Portfolio</a>
         </div>
-
-        <aside class="hero-cards">
-          <div class="floating-card">30+ Projects</div>
-          <div class="floating-card">48 Hour Delivery</div>
-          <div class="floating-card">4K Export</div>
-          <div class="floating-card">Unlimited Revisions</div>
-        </aside>
       </div>
+    </section>
 
-      <div class="mouse-glow" id="mouse-glow" aria-hidden="true"></div>
+    <section class="section stats container" id="stats">
+      <div class="grid-1-2-3">
+        <div class="glass stat-card reveal">
+          <span class="stat-number">30+</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="glass stat-card reveal">
+          <span class="stat-number">48H</span>
+          <span class="stat-label">Fast Delivery</span>
+        </div>
+        <div class="glass stat-card reveal">
+          <span class="stat-number">4K</span>
+          <span class="stat-label">Ultra HD Quality</span>
+        </div>
+      </div>
     </section>
 
     <section class="section services container" id="services">
-      <h2 class="section-title">Services</h2>
-      <p class="section-sub">A refined range of cinematic services for creators and brands</p>
-      <div class="cards-grid">
-        <article class="service-card">
+      <div class="section-header center">
+        <h2 class="reveal">Services</h2>
+        <p class="reveal">A refined range of cinematic services for creators and brands</p>
+      </div>
+      <div class="grid-1-2-3">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></div>
           <h3>Music Video Editing</h3>
           <p>Editorial storytelling, rhythm cuts, and cinematic pacing for music artists.</p>
         </article>
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
           <h3>YouTube Video Editing</h3>
           <p>Engaging long-form edits with chaptering, motion graphics, and clean audio.</p>
         </article>
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
           <h3>Reels & Shorts Editing</h3>
           <p>High-energy, attention-grabbing short-form content optimised for platforms.</p>
         </article>
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
           <h3>Podcast Editing</h3>
           <p>Noise reduction, balance, and curated storytelling for audio-first productions.</p>
         </article>
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
           <h3>Commercial Ads</h3>
           <p>Polished ad-ready edits for campaigns and social media placements.</p>
         </article>
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/></svg></div>
           <h3>Color Grading</h3>
           <p>Filmic color, mood lifting, and cinematic LUT workflows.</p>
         </article>
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
           <h3>Lyric Videos</h3>
           <p>Stylised lyric animations with performance-led direction.</p>
         </article>
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
           <h3>Audio Mixing</h3>
           <p>Professional mix, master-ready export and stems delivery.</p>
         </article>
@@ -120,13 +144,15 @@
     </section>
 
     <section class="section featured container" id="featured">
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-sub">New work will be added here — cinematic edits, color grades and concept films.</p>
+      <div class="section-header center">
+        <h2 class="reveal">Featured Projects</h2>
+        <p class="reveal">New work will be added here — cinematic edits, color grades and concept films.</p>
+      </div>
 
-      <div class="projects-grid">
-        <div class="project-card" data-video="https://videos.pexels.com/video-files/853889/853889-hd_1920_1080_25fps.mp4">
+      <div class="grid-1-2-3">
+        <div class="glass project-card reveal" data-video="https://videos.pexels.com/video-files/853889/853889-hd_1920_1080_25fps.mp4">
           <div class="project-media">
-            <img src="https://images.unsplash.com/photo-1536240478700-b8673f6fe91a?auto=format&fit=crop&w=800&q=80" alt="Cinematic landscape">
+            <img src="https://images.unsplash.com/photo-1536240478700-b8673f6fe91a?auto=format&fit=crop&w=800&q=80" alt="Cinematic landscape" loading="lazy">
             <button class="play-btn" aria-label="Play project">Play</button>
           </div>
           <div class="project-meta">
@@ -135,9 +161,9 @@
           </div>
         </div>
 
-        <div class="project-card" data-video="https://videos.pexels.com/video-files/4069480/4069480-uhd_2560_1440_25fps.mp4">
+        <div class="glass project-card reveal" data-video="https://videos.pexels.com/video-files/4069480/4069480-uhd_2560_1440_25fps.mp4">
           <div class="project-media">
-            <img src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?auto=format&fit=crop&w=800&q=80" alt="Urban exploration">
+            <img src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?auto=format&fit=crop&w=800&q=80" alt="Urban exploration" loading="lazy">
             <button class="play-btn" aria-label="Play project">Play</button>
           </div>
           <div class="project-meta">
@@ -149,58 +175,59 @@
     </section>
 
     <section class="section grading container" id="grading">
-      <h2 class="section-title">Color Grading — Before / After</h2>
-      <p class="section-sub">A filmic approach to color that heightens mood and detail.</p>
-      <div class="before-after-wrap">
+      <div class="section-header center">
+        <h2 class="reveal">Color Grading</h2>
+        <p class="reveal">A filmic approach to color that heightens mood and detail.</p>
+      </div>
+      <div class="glass before-after-wrap reveal">
         <div class="before-after" id="before-after">
-          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80&sat=-100" alt="Before grade" class="ba-img before">
-          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80" alt="After grade" class="ba-img after">
+          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80&sat=-100" alt="Before grade" class="ba-img before" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80" alt="After grade" class="ba-img after" loading="lazy">
           <div class="ba-label before-label">Before</div>
           <div class="ba-label after-label">After</div>
-          <div class="ba-slider" id="ba-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+          <div class="ba-slider" id="ba-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <div class="slider-handle"></div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section workflow container" id="workflow">
-      <h2 class="section-title">Workflow</h2>
-      <p class="section-sub">A transparent, fast, and collaborative process.</p>
-      <ol class="timeline">
-        <li>
-          <span class="step">1</span>
-          <div class="step-content">
-            <h4>Send Footage</h4>
-            <p>Upload assets via the link we provide or share cloud storage.</p>
-          </div>
-        </li>
-        <li>
-          <span class="step">2</span>
-          <div class="step-content">
-            <h4>Editing Begins</h4>
-            <p>We craft an initial edit and lock the performance and pacing.</p>
-          </div>
-        </li>
-        <li>
-          <span class="step">3</span>
-          <div class="step-content">
-            <h4>Review</h4>
-            <p>Feedback loop with unlimited minor revisions until you're thrilled.</p>
-          </div>
-        </li>
-        <li>
-          <span class="step">4</span>
-          <div class="step-content">
-            <h4>Delivery</h4>
-            <p>Final deliverables in requested formats, masters and proxies.</p>
-          </div>
-        </li>
-      </ol>
+      <div class="section-header center">
+        <h2 class="reveal">Workflow</h2>
+        <p class="reveal">A transparent, fast, and collaborative process.</p>
+      </div>
+      <div class="timeline grid-1-2-3">
+        <div class="glass timeline-item reveal">
+          <span class="step-number">01</span>
+          <h4>Send Footage</h4>
+          <p>Upload assets via the link we provide or share cloud storage.</p>
+        </div>
+        <div class="glass timeline-item reveal">
+          <span class="step-number">02</span>
+          <h4>Editing Begins</h4>
+          <p>We craft an initial edit and lock the performance and pacing.</p>
+        </div>
+        <div class="glass timeline-item reveal">
+          <span class="step-number">03</span>
+          <h4>Review</h4>
+          <p>Feedback loop with unlimited minor revisions until you're thrilled.</p>
+        </div>
+        <div class="glass timeline-item reveal">
+          <span class="step-number">04</span>
+          <h4>Delivery</h4>
+          <p>Final deliverables in requested formats, masters and proxies.</p>
+        </div>
+      </div>
     </section>
 
     <section class="section pricing container" id="pricing">
-      <h2 class="section-title">Pricing (indicative)</h2>
-      <div class="pricing-grid">
-        <div class="pricing-card">
+      <div class="section-header center">
+        <h2 class="reveal">Pricing</h2>
+        <p class="reveal">Transparent and flexible pricing. Exact quotes provided after project scope review.</p>
+      </div>
+      <div class="grid-1-2-3">
+        <div class="glass pricing-card reveal">
           <h3>Reels & Shorts</h3>
           <p class="price">₹699 – ₹5,000</p>
           <ul>
@@ -208,9 +235,9 @@
             <li>Color & sound</li>
             <li>1–2 revisions</li>
           </ul>
-          <a href="order.html" class="btn btn-ghost">Order</a>
+          <a href="order.html" class="btn btn-ghost">Order Now</a>
         </div>
-        <div class="pricing-card">
+        <div class="glass pricing-card reveal">
           <h3>Long-form YouTube</h3>
           <p class="price">₹1,299 – ₹15,000</p>
           <ul>
@@ -218,9 +245,9 @@
             <li>Noise reduction</li>
             <li>Stems & masters</li>
           </ul>
-          <a href="order.html" class="btn btn-ghost">Order</a>
+          <a href="order.html" class="btn btn-ghost">Order Now</a>
         </div>
-        <div class="pricing-card">
+        <div class="glass pricing-card reveal">
           <h3>Commercial Ads</h3>
           <p class="price">₹500 – ₹5,000</p>
           <ul>
@@ -228,9 +255,9 @@
             <li>Multiple aspect ratios</li>
             <li>Color & audio</li>
           </ul>
-          <a href="order.html" class="btn btn-ghost">Order</a>
+          <a href="order.html" class="btn btn-ghost">Order Now</a>
         </div>
-        <div class="pricing-card">
+        <div class="glass pricing-card reveal">
           <h3>Music Videos</h3>
           <p class="price">₹999 – ₹6,999</p>
           <ul>
@@ -238,7 +265,7 @@
             <li>Multi-cam</li>
             <li>Color grading</li>
           </ul>
-          <a href="order.html" class="btn btn-ghost">Order</a>
+          <a href="order.html" class="btn btn-ghost">Order Now</a>
         </div>
       </div>
     </section>
@@ -298,4 +325,4 @@
   </div>
 
 </body>
-            </html>
+</html>

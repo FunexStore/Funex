@@ -7,12 +7,9 @@
   <meta name="description" content="Funex Studio services: Music videos, editing, color grading, podcast editing and more." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
   <script defer src="js/app.js"></script>
 </head>
 <body class="site-dark">
-  <!-- Header -->
   <header class="site-header" id="site-header">
     <div class="nav-inner">
       <a class="brand" href="index.html" aria-label="Funex Studio home">
@@ -21,6 +18,13 @@
       </a>
 
       <nav class="main-nav" id="main-nav">
+        <div class="mobile-nav-header">
+          <a class="brand" href="index.html">
+            <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+            <span class="brand-text">FUNEX STUDIO</span>
+          </a>
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+        </div>
         <ul>
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="services.html" class="nav-link active">Services</a></li>
@@ -30,11 +34,14 @@
           <li><a href="faq.html" class="nav-link">FAQ</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
+        <div class="mobile-nav-footer">
+          <a href="order.html" class="btn btn-accent">Start Project</a>
+        </div>
       </nav>
 
       <div class="nav-cta">
-        <a href="order.html" class="btn btn-accent">Start Project</a>
-        <button class="hamburger" aria-label="Open menu">
+        <a href="order.html" class="btn btn-accent desktop-only">Start Project</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -43,58 +50,70 @@
 
   <main>
     <section class="section hero-sm container">
-      <h1 class="section-title">Services</h1>
-      <p class="section-sub">A tailored suite of cinematic services — crafted for creators and brands seeking premium execution.</p>
+      <div class="section-header">
+        <h1 class="reveal">Services</h1>
+        <p class="reveal">A tailored suite of cinematic services — crafted for creators and brands seeking premium execution.</p>
+      </div>
     </section>
 
     <section class="section services container">
-      <div class="cards-grid large">
-        <article class="service-card">
+      <div class="grid-1-2-3">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></div>
           <h3>Music Video Editing</h3>
           <p>Director-driven edits, tempo matches and narrative framing for music artists.</p>
         </article>
 
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
           <h3>YouTube Video Editing</h3>
           <p>Chapters, pacing, motion design and audio polishing for long-form success.</p>
         </article>
 
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
           <h3>Reels & Shorts</h3>
           <p>Platform-first edits that perform while preserving cinematic quality.</p>
         </article>
 
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
           <h3>Podcast Editing</h3>
           <p>Cohesive storytelling, noise reduction and broadcast-ready delivery.</p>
         </article>
 
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
           <h3>Commercial Ads</h3>
           <p>Conversion-focused edits with bespoke motion design and color.</p>
         </article>
 
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/></svg></div>
           <h3>Color Grading</h3>
           <p>Filmic grades, LUT creation and scene-match workflows.</p>
         </article>
 
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
           <h3>Lyric Videos</h3>
           <p>Elegant typography animation and sync for lyric content.</p>
         </article>
 
-        <article class="service-card">
+        <article class="glass service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
           <h3>Audio Mixing</h3>
           <p>Professional mix, stem delivery and loudness management for streaming platforms.</p>
         </article>
       </div>
     </section>
 
-    <section class="section contact-cta container">
-      <h3>Ready to start?</h3>
-      <p>Email: <a href="mailto:5awaixai@gmail.com">5awaixai@gmail.com</a> • WhatsApp: <a href="https://wa.me/917023551413" target="_blank" rel="noopener">+91 70235 51413</a></p>
-      <a href="order.html" class="btn btn-accent">Start Project</a>
+    <section class="section contact-cta container center">
+      <div class="glass reveal p-6">
+        <h3>Ready to start?</h3>
+        <p class="mb-4">Email: <a href="mailto:5awaixai@gmail.com">5awaixai@gmail.com</a> • WhatsApp: <a href="https://wa.me/917023551413" target="_blank" rel="noopener">+91 70235 51413</a></p>
+        <a href="order.html" class="btn btn-accent">Start Project</a>
+      </div>
     </section>
   </main>
 
@@ -113,15 +132,19 @@
         <a href="services.html">Services</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
       <div class="footer-legal">
         <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms-and-conditions.html">Terms</a>
-        <p class="copyright">© <span id="year-2"></span> Funex Studio</p>
+        <a href="refund-policy.html">Refund Policy</a>
+        <a href="delivery-policy.html">Delivery Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+        <p class="copyright">© <span id="year"></span> Funex Studio. All rights reserved.</p>
       </div>
     </div>
   </footer>
-
 </body>
 </html>

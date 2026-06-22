@@ -7,74 +7,110 @@
   <meta name="description" content="Frequently asked questions about Funex Studio services and workflow." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
   <script defer src="js/app.js"></script>
   <script defer src="js/faq.js"></script>
 </head>
 <body class="site-dark">
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="nav-inner">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="Funex Studio home">
         <img src="images/logos/logo.svg" alt="Funex Studio logo" class="logo-svg">
         <span class="brand-text">FUNEX STUDIO</span>
       </a>
-      <nav class="main-nav">
+
+      <nav class="main-nav" id="main-nav">
+        <div class="mobile-nav-header">
+          <a class="brand" href="index.html">
+            <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+            <span class="brand-text">FUNEX STUDIO</span>
+          </a>
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+        </div>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="faq.html" class="active">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
+        <div class="mobile-nav-footer">
+          <a href="order.html" class="btn btn-accent">Start Project</a>
+        </div>
       </nav>
 
       <div class="nav-cta">
-        <a href="order.html" class="btn btn-accent">Start Project</a>
+        <a href="order.html" class="btn btn-accent desktop-only">Start Project</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
 
   <main>
     <section class="section hero-sm container">
-      <h1 class="section-title">FAQ</h1>
-      <p class="section-sub">Common questions about turnaround, revisions, formats and delivery.</p>
+      <div class="section-header">
+        <h1 class="reveal">FAQ</h1>
+        <p class="reveal">Common questions about turnaround, revisions, formats and delivery.</p>
+      </div>
     </section>
 
     <section class="section container">
-      <div class="faq-accordion" id="faq-accordion">
-        <div class="faq-item">
+      <div class="faq-accordion content-narrow" id="faq-accordion">
+        <div class="glass faq-item reveal mb-2 hidden-overflow">
           <button class="faq-q">How long does delivery take?<span class="chev">+</span></button>
-          <div class="faq-a">Delivery depends on scope. Typical turnaround: Reels 48–72 hours, Long-form 3–10 days. Rush options available.</div>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Delivery depends on scope. Typical turnaround: Reels 48–72 hours, Long-form 3–10 days. Rush options available.
+            </div>
+          </div>
         </div>
 
-        <div class="faq-item">
+        <div class="glass faq-item reveal mb-2 hidden-overflow">
           <button class="faq-q">Can I request revisions?<span class="chev">+</span></button>
-          <div class="faq-a">Yes. We offer unlimited minor revisions for most packages. Major restructuring may incur additional fees; we'll confirm during scope.</div>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Yes. We offer unlimited minor revisions for most packages. Major restructuring may incur additional fees; we'll confirm during scope.
+            </div>
+          </div>
         </div>
 
-        <div class="faq-item">
+        <div class="glass faq-item reveal mb-2 hidden-overflow">
           <button class="faq-q">How do I send footage?<span class="chev">+</span></button>
-          <div class="faq-a">We accept Google Drive, WeTransfer, Dropbox, or private file links. After order, we provide a secure upload link and instructions.</div>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              We accept Google Drive, WeTransfer, Dropbox, or private file links. After order, we provide a secure upload link and instructions.
+            </div>
+          </div>
         </div>
 
-        <div class="faq-item">
+        <div class="glass faq-item reveal mb-2 hidden-overflow">
           <button class="faq-q">What formats are supported?<span class="chev">+</span></button>
-          <div class="faq-a">We accept common formats: MP4, MOV, ProRes, MXF, WAV. Provide camera files when possible; we can transcode if required.</div>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              We accept common formats: MP4, MOV, ProRes, MXF, WAV. Provide camera files when possible; we can transcode if required.
+            </div>
+          </div>
         </div>
 
-        <div class="faq-item">
+        <div class="glass faq-item reveal mb-2 hidden-overflow">
           <button class="faq-q">Do you provide raw project files?<span class="chev">+</span></button>
-          <div class="faq-a">We deliver high-quality masters and optional project files on request for an additional fee.</div>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              We deliver high-quality masters and optional project files on request for an additional fee.
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section contact-cta container">
-      <h3>Still have questions?</h3>
-      <p>Email: <a href="mailto:5awaixai@gmail.com">5awaixai@gmail.com</a> • WhatsApp: <a href="https://wa.me/917023551413">+91 70235 51413</a></p>
+    <section class="section contact-cta container center">
+      <div class="glass reveal p-6">
+        <h3>Still have questions?</h3>
+        <p>Email: <a href="mailto:5awaixai@gmail.com">5awaixai@gmail.com</a> • WhatsApp: <a href="https://wa.me/917023551413">+91 70235 51413</a></p>
+      </div>
     </section>
   </main>
 
@@ -82,17 +118,28 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
-        <div class="brand-text-compact"><strong>FUNEX STUDIO</strong></div>
+        <div class="brand-text-compact">
+          <strong>FUNEX STUDIO</strong>
+          <small>Turning Imaginations Into Reality</small>
+        </div>
       </div>
 
       <nav class="footer-nav">
         <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
 
       <div class="footer-legal">
-        <a href="terms-and-conditions.html">Terms</a>
-        <p class="copyright">© <span id="year-6"></span> Funex Studio</p>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="refund-policy.html">Refund Policy</a>
+        <a href="delivery-policy.html">Delivery Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+        <p class="copyright">© <span id="year"></span> Funex Studio. All rights reserved.</p>
       </div>
     </div>
   </footer>

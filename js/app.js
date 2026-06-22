@@ -23,12 +23,24 @@
 
   // Hamburger menu toggle for mobile
   const hamburgers = qsa('.hamburger');
+  const navCloses = qsa('.nav-close');
+  const mainNav = qs('.main-nav');
+
+  const toggleNav = (force) => {
+    document.body.classList.toggle('nav-open', force);
+  };
+
   hamburgers.forEach(hamburger => {
-    hamburger.addEventListener('click', ()=>{
-      document.body.classList.toggle('nav-open');
-      const nav = qs('.main-nav');
-      if(nav) nav.style.display = nav.style.display === 'flex' ? '' : 'flex';
-    });
+    hamburger.addEventListener('click', () => toggleNav(true));
+  });
+
+  navCloses.forEach(close => {
+    close.addEventListener('click', () => toggleNav(false));
+  });
+
+  // Close nav on link click
+  qsa('.nav-link', mainNav).forEach(link => {
+    link.addEventListener('click', () => toggleNav(false));
   });
 
   // Sticky header hide/show on scroll
@@ -119,13 +131,16 @@
   });
 
   // Intersection observer: reveal on scroll
-  const reveal = (el) => el.classList.add('reveal');
+  const revealAction = (el) => el.classList.add('revealed');
   const ro = new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
-      if(entry.isIntersecting) reveal(entry.target);
+      if(entry.isIntersecting){
+        revealAction(entry.target);
+        ro.unobserve(entry.target);
+      }
     });
-  }, {threshold:0.12});
-  qsa('.service-card, .project-card, .pricing-card, .timeline li').forEach(el=>ro.observe(el));
+  }, {threshold:0.1});
+  qsa('.reveal').forEach(el=>ro.observe(el));
 
   // Before/after slider
   const initBeforeAfter = (containerId, sliderId) => {
@@ -181,9 +196,7 @@
 
   // Close any mobile nav when resizing to desktop
   window.addEventListener('resize', ()=>{
-    if(window.innerWidth > 900){
-      const nav = qs('.main-nav');
-      if(nav) nav.style.removeProperty('display');
+    if(window.innerWidth >= 1024){
       document.body.classList.remove('nav-open');
     }
   });

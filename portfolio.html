@@ -7,20 +7,25 @@
   <meta name="description" content="Featured cinematic work from Funex Studio — music videos, reels, and ads." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
   <script defer src="js/app.js"></script>
   <script defer src="js/portfolio.js"></script>
 </head>
 <body class="site-dark">
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="nav-inner">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="Funex Studio home">
         <img src="images/logos/logo.svg" alt="Funex Studio logo" class="logo-svg">
         <span class="brand-text">FUNEX STUDIO</span>
       </a>
 
       <nav class="main-nav" id="main-nav">
+        <div class="mobile-nav-header">
+          <a class="brand" href="index.html">
+            <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+            <span class="brand-text">FUNEX STUDIO</span>
+          </a>
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+        </div>
         <ul>
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
@@ -30,11 +35,14 @@
           <li><a href="faq.html" class="nav-link">FAQ</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
+        <div class="mobile-nav-footer">
+          <a href="order.html" class="btn btn-accent">Start Project</a>
+        </div>
       </nav>
 
       <div class="nav-cta">
-        <a href="order.html" class="btn btn-accent">Start Project</a>
-        <button class="hamburger" aria-label="Open menu">
+        <a href="order.html" class="btn btn-accent desktop-only">Start Project</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -43,39 +51,49 @@
 
   <main>
     <section class="section hero-sm container">
-      <h1 class="section-title">Portfolio</h1>
-      <p class="section-sub">Selected edits that demonstrate craft, color and cinematic intent.</p>
+      <div class="section-header">
+        <h1 class="reveal">Portfolio</h1>
+        <p class="reveal">Selected edits that demonstrate craft, color and cinematic intent.</p>
+      </div>
     </section>
 
     <section class="section container">
-      <div class="portfolio-grid">
-        <article class="portfolio-item" data-video="https://videos.pexels.com/video-files/853889/853889-hd_1920_1080_25fps.mp4">
-          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Cinematic nature">
-          <div class="item-meta">
+      <div class="grid-1-2-3">
+        <article class="glass project-card reveal" data-video="https://videos.pexels.com/video-files/853889/853889-hd_1920_1080_25fps.mp4">
+          <div class="project-media">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Cinematic nature" loading="lazy">
+            <button class="play-btn" aria-label="Play project">Play</button>
+          </div>
+          <div class="project-meta">
             <h4>Cinematic Nature</h4>
-            <button class="btn btn-ghost play-item">Play</button>
           </div>
         </article>
 
-        <article class="portfolio-item" data-video="https://videos.pexels.com/video-files/4069480/4069480-uhd_2560_1440_25fps.mp4">
-          <img src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?auto=format&fit=crop&w=800&q=80" alt="Urban exploration">
-          <div class="item-meta">
+        <article class="glass project-card reveal" data-video="https://videos.pexels.com/video-files/4069480/4069480-uhd_2560_1440_25fps.mp4">
+          <div class="project-media">
+            <img src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?auto=format&fit=crop&w=800&q=80" alt="Urban exploration" loading="lazy">
+            <button class="play-btn" aria-label="Play project">Play</button>
+          </div>
+          <div class="project-meta">
             <h4>Urban Vibe</h4>
-            <button class="btn btn-ghost play-item">Play</button>
           </div>
         </article>
       </div>
     </section>
 
     <section class="section container">
-      <h3 class="section-title">Color grading showcase</h3>
-      <div class="before-after-wrap small">
+      <div class="section-header">
+        <h2 class="reveal">Color grading showcase</h2>
+      </div>
+      <div class="glass before-after-wrap reveal">
         <div class="before-after" id="pa-before-after">
-          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80&sat=-100" alt="Before grade" class="ba-img before">
-          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80" alt="After grade" class="ba-img after">
+          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80&sat=-100" alt="Before grade" class="ba-img before" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80" alt="After grade" class="ba-img after" loading="lazy">
           <div class="ba-label before-label">Before</div>
           <div class="ba-label after-label">After</div>
-          <div class="ba-slider" id="pa-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+          <div class="ba-slider" id="pa-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <div class="slider-handle"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -87,17 +105,26 @@
         <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
         <div class="brand-text-compact">
           <strong>FUNEX STUDIO</strong>
+          <small>Turning Imaginations Into Reality</small>
         </div>
       </div>
+
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="portfolio.html">Portfolio</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
       <div class="footer-legal">
         <a href="privacy-policy.html">Privacy Policy</a>
-        <p class="copyright">© <span id="year-3"></span> Funex Studio</p>
+        <a href="refund-policy.html">Refund Policy</a>
+        <a href="delivery-policy.html">Delivery Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+        <p class="copyright">© <span id="year"></span> Funex Studio. All rights reserved.</p>
       </div>
     </div>
   </footer>

@@ -7,29 +7,92 @@
   <meta name="description" content="Terms and conditions for Funex Studio services." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
   <script defer src="js/app.js"></script>
 </head>
 <body class="site-dark">
+  <header class="site-header" id="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Funex Studio home">
+        <img src="images/logos/logo.svg" alt="Funex Studio logo" class="logo-svg">
+        <span class="brand-text">FUNEX STUDIO</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <div class="mobile-nav-header">
+          <a class="brand" href="index.html">
+            <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+            <span class="brand-text">FUNEX STUDIO</span>
+          </a>
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+        </div>
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+          <a href="order.html" class="btn btn-accent">Start Project</a>
+        </div>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="order.html" class="btn btn-accent desktop-only">Start Project</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
   <main class="container">
-    <section class="policy">
-      <h1>Terms and Conditions</h1>
-      <p>These terms govern the relationship between Funex Studio and clients. By commissioning work you agree to these terms.</p>
+    <section class="section content-narrow">
+      <div class="glass reveal p-6">
+        <h1 class="mb-4">Terms and Conditions</h1>
+        <p class="mb-4">These terms govern the relationship between Funex Studio and clients. By commissioning work you agree to these terms.</p>
 
-      <h2>Payment</h2>
-      <p>Fees are due as agreed in the quote. Work will begin on receipt of payment or deposit as specified.</p>
+        <h2 class="mb-2 mt-4">Payment</h2>
+        <p class="mb-4">Fees are due as agreed in the quote. Work will begin on receipt of payment or deposit as specified.</p>
 
-      <h2>Intellectual Property</h2>
-      <p>Clients retain ownership of original raw footage. Delivered masters are licensed to the client for agreed uses after full payment. Funex Studio reserves the right to use finished work for promotion unless otherwise agreed.</p>
+        <h2 class="mb-2 mt-4">Intellectual Property</h2>
+        <p class="mb-4">Clients retain ownership of original raw footage. Delivered masters are licensed to the client for agreed uses after full payment. Funex Studio reserves the right to use finished work for promotion unless otherwise agreed.</p>
 
-      <h2>Liability</h2>
-      <p>Funex Studio's liability is limited to the fees paid for the project. We are not responsible for losses due to third-party platforms or downstream usage outside of the agreed scope.</p>
+        <h2 class="mb-2 mt-4">Liability</h2>
+        <p>Funex Studio's liability is limited to the fees paid for the project. We are not responsible for losses due to third-party platforms or downstream usage outside of the agreed scope.</p>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="copyright">© <span id="year-12"></span> Funex Studio</p>
+      <div class="footer-brand">
+        <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+        <div class="brand-text-compact">
+          <strong>FUNEX STUDIO</strong>
+          <small>Turning Imaginations Into Reality</small>
+        </div>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="footer-legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="refund-policy.html">Refund Policy</a>
+        <a href="delivery-policy.html">Delivery Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+        <p class="copyright">© <span id="year"></span> Funex Studio. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 </body>
