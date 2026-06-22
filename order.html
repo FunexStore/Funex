@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Order — Funex Studio</title>
-  <meta name="description" content="Order page for Funex Studio projects." />
+  <title>Start Your Project — Funex Studio</title>
+  <meta name="description" content="Initiate your premium video production project with Funex Studio." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script defer src="js/app.js"></script>
 </head>
 <body class="site-dark">
@@ -51,73 +53,105 @@
   <main>
     <section class="section hero-sm container">
       <div class="section-header">
-        <h1 class="reveal">Order a Project</h1>
-        <p class="reveal">Complete the form below to initiate your project. We'll reply with a quote and next steps.</p>
+        <h1 class="reveal">Start Your Project</h1>
+        <p class="reveal">Tell us about your vision. We'll handle the cinematic execution.</p>
       </div>
     </section>
 
     <section class="section container">
-      <div class="glass reveal p-6 content-narrow">
-        <form id="order-form" class="order-form" method="get" action="thank-you.html" novalidate>
-          <div class="form-grid-2">
-            <label class="form-label">
-              <span class="form-label-text">Name</span>
-              <input name="name" type="text" required class="form-input">
-            </label>
+      <div class="order-layout">
+        <!-- Left: Form -->
+        <div class="order-form-container reveal">
+          <div class="glass p-6">
+            <form id="order-form" class="form-grid-2">
+              <label class="form-label col-span-full">
+                <span class="form-label-text">Select Service</span>
+                <select name="service_type" id="service-select" required class="form-input">
+                  <option value="">Choose a cinematic service...</option>
+                  <option value="music-video" data-price="₹999" data-time="3-7 Days">Music Video Editing</option>
+                  <option value="youtube-long" data-price="₹1,299" data-time="2-5 Days">YouTube Long-form</option>
+                  <option value="reels" data-price="₹699" data-time="24-48 Hours">Reels & Shorts</option>
+                  <option value="commercial" data-price="₹500" data-time="2-4 Days">Commercial Ads</option>
+                  <option value="grading" data-price="Custom" data-time="2-5 Days">Color Grading</option>
+                  <option value="podcast" data-price="₹899" data-time="2-3 Days">Podcast Production</option>
+                </select>
+              </label>
 
-            <label class="form-label">
-              <span class="form-label-text">Email</span>
-              <input name="email" type="email" required class="form-input">
-            </label>
+              <label class="form-label">
+                <span class="form-label-text">Your Name</span>
+                <input name="user_name" type="text" required placeholder="John Doe" class="form-input">
+              </label>
 
-            <label class="form-label">
-              <span class="form-label-text">WhatsApp</span>
-              <input name="whatsapp" type="tel" placeholder="+917023551413" required class="form-input">
-            </label>
+              <label class="form-label">
+                <span class="form-label-text">Email Address</span>
+                <input name="user_email" type="email" required placeholder="john@example.com" class="form-input">
+              </label>
 
-            <label class="form-label">
-              <span class="form-label-text">Project Type</span>
-              <select name="project_type" required class="form-input">
-                <option value="">Choose a type</option>
-                <option>Music Video Editing</option>
-                <option>YouTube Video Editing</option>
-                <option>Reels & Shorts Editing</option>
-                <option>Podcast Editing</option>
-                <option>Commercial Ads</option>
-                <option>Color Grading</option>
-              </select>
-            </label>
+              <label class="form-label">
+                <span class="form-label-text">WhatsApp Number</span>
+                <input name="user_phone" type="tel" required placeholder="+91 ..." class="form-input">
+              </label>
 
-            <label class="form-label">
-              <span class="form-label-text">Duration</span>
-              <input name="duration" type="text" placeholder="e.g. 3:45 or 00:05:00" class="form-input">
-            </label>
+              <label class="form-label">
+                <span class="form-label-text">Project Name</span>
+                <input name="project_name" type="text" placeholder="e.g. Summer Vibe Music Video" class="form-input">
+              </label>
 
-            <label class="form-label">
-              <span class="form-label-text">Reference Links</span>
-              <input name="refs" type="url" placeholder="https://" class="form-input">
-            </label>
+              <label class="form-label">
+                <span class="form-label-text">Expected Deadline</span>
+                <input name="deadline" type="date" class="form-input">
+              </label>
 
-            <label class="form-label">
-              <span class="form-label-text">Deadline</span>
-              <input name="deadline" type="date" class="form-input">
-            </label>
+              <label class="form-label">
+                <span class="form-label-text">Budget Range (₹)</span>
+                <input name="budget" type="number" placeholder="5000" class="form-input">
+              </label>
 
-            <label class="form-label">
-              <span class="form-label-text">Budget (₹)</span>
-              <input name="budget" type="number" min="0" class="form-input">
-            </label>
+              <label class="form-label col-span-full">
+                <span class="form-label-text">Reference Links (Drive/YouTube/Pinterest)</span>
+                <textarea name="references" rows="3" placeholder="Paste links to styles you like..." class="form-input"></textarea>
+              </label>
 
-            <label class="form-label col-span-full">
-              <span class="form-label-text">Additional Notes</span>
-              <textarea name="notes" rows="6" class="form-input form-textarea"></textarea>
-            </label>
+              <label class="form-label col-span-full">
+                <span class="form-label-text">Additional Details</span>
+                <textarea name="message" rows="5" placeholder="Tell us more about the project requirements..." class="form-input"></textarea>
+              </label>
+
+              <div class="form-actions mt-4 col-span-full">
+                <button class="btn btn-accent" type="submit" id="submit-btn">
+                  <span class="btn-text">Send Project Request</span>
+                  <div class="btn-loader" style="display:none;"></div>
+                </button>
+                <p class="form-status mt-4" id="form-status"></p>
+              </div>
+            </form>
           </div>
+        </div>
 
-          <div class="form-actions mt-4">
-            <button class="btn btn-accent" type="submit">Place Order</button>
+        <!-- Right: Summary (Sticky) -->
+        <aside class="order-summary-container reveal">
+          <div class="glass p-6 sticky-summary" id="order-summary-card">
+            <h3 class="mb-4">Project Summary</h3>
+            <div class="summary-details">
+              <div class="summary-item">
+                <span class="summary-label">Service:</span>
+                <span class="summary-value" id="summary-service">Not selected</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Base Price:</span>
+                <span class="summary-value text-accent" id="summary-price">—</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Est. Turnaround:</span>
+                <span class="summary-value" id="summary-time">—</span>
+              </div>
+            </div>
+
+            <div class="summary-footer mt-4 pt-4 border-top">
+              <p class="text-sm">Final pricing is subject to project complexity and specific requirements.</p>
+            </div>
           </div>
-        </form>
+        </aside>
       </div>
     </section>
   </main>
@@ -143,13 +177,19 @@
       </nav>
 
       <div class="footer-legal">
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="refund-policy.html">Refund Policy</a>
-        <a href="delivery-policy.html">Delivery Policy</a>
-        <a href="terms-and-conditions.html">Terms & Conditions</a>
+        <div class="legal-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="refund-policy.html">Refund Policy</a>
+          <a href="delivery-policy.html">Delivery Policy</a>
+          <a href="terms-and-conditions.html">Terms & Conditions</a>
+        </div>
         <p class="copyright">© <span id="year"></span> Funex Studio. All rights reserved.</p>
       </div>
     </div>
   </footer>
+
+  <a href="https://wa.me/917023551413" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12.031 6.172c-2.32 0-4.519.903-6.16 2.544-1.64 1.64-2.544 3.839-2.544 6.16 0 2.32.903 4.519 2.544 6.16 1.64 1.641 3.84 2.544 6.16 2.544 2.32 0 4.519-.903 6.16-2.544 1.64-1.641 2.544-3.84 2.544-6.16 0-2.321-.903-4.519-2.544-6.16-1.641-1.641-3.84-2.544-6.16-2.544zm0 15.313c-1.808 0-3.522-.705-4.803-1.985-1.28-1.28-1.985-2.994-1.985-4.803 0-1.808.705-3.523 1.985-4.803 1.281-1.28 2.995-1.985 4.803-1.985 1.808 0 3.522.705 4.803 1.985 1.28 1.28 1.985 2.995 1.985 4.803 0 1.809-.705 3.523-1.985 4.803-1.281 1.28-2.995 1.985-4.803 1.985zM17.187 15.61c-.3.15-.337.151-.525.225-.188.075-.3.037-.412-.112-.112-.15-.45-.562-.562-.675-.112-.112-.225-.15-.412-.075-.188.075-.788.3-1.125.6-.263.225-.412.3-.637.375s-.375-.037-.45-.187c-.075-.15-.45-1.575-.45-2.025 0-.45.188-.675.337-.825.15-.15.225-.225.337-.375.112-.15.075-.262-.037-.412-.112-.15-.487-1.162-.675-1.575-.187-.412-.375-.337-.525-.337s-.263-.037-.412-.037-.375.037-.562.225c-.188.188-.713.712-.713 1.762s.75 2.062.863 2.212c.112.15 1.462 2.25 3.562 3.112.525.225 1.05.337 1.425.375.525.075.975.037 1.35-.037.412-.075.863-.375 1.012-.712.15-.337.15-.637.112-.712-.038-.075-.15-.112-.45-.262z"/></svg>
+  </a>
 </body>
 </html>

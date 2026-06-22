@@ -169,30 +169,135 @@
   initBeforeAfter('#before-after','#ba-slider');
   initBeforeAfter('#pa-before-after','#pa-slider');
 
-  // Form handling: simple client-side redirect to thank-you
-  const handleForm = (formId) => {
-    const f = qs(`#${formId}`);
-    if(!f) return;
-    f.addEventListener('submit', (ev)=>{
-      ev.preventDefault();
-      // Basic validation
-      const valid = Array.from(f.elements).every(el=>{
-        if(el.required){
-          return el.value.trim() !== '';
-        }
-        return true;
-      });
-      if(!valid){
-        alert('Please fill required fields.');
+  // Order Form Summary Logic
+  const serviceSelect = qs('#service-select');
+  if(serviceSelect) {
+    const summaryService = qs('#summary-service');
+    const summaryPrice = qs('#summary-price');
+    const summaryTime = qs('#summary-time');
+
+    serviceSelect.addEventListener('change', (e) => {
+      const option = e.target.options[e.target.selectedIndex];
+      if(option.value) {
+        summaryService.textContent = option.text;
+        summaryPrice.textContent = option.dataset.price || '—';
+        summaryTime.textContent = option.dataset.time || '—';
+      } else {
+        summaryService.textContent = 'Not selected';
+        summaryPrice.textContent = '—';
+        summaryTime.textContent = '—';
+      }
+    });
+  }
+
+  // EmailJS Integration & Form Handling
+  const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; // Replace with your Public Key
+  const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID"; // Replace with your Service ID
+  const EMAILJS_ORDER_TEMPLATE = "YOUR_ORDER_TEMPLATE_ID"; // Replace with your Template ID
+  const EMAILJS_CONTACT_TEMPLATE = "YOUR_CONTACT_TEMPLATE_ID";
+
+  if(typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }
+
+  const handleFormSubmission = (formId, templateId, successCallback) => {
+    const form = qs(formId);
+    if(!form) return;
+
+    const btn = qs('button[type="submit"]', form);
+    const btnText = qs('.btn-text', btn) || btn;
+    const btnLoader = qs('.btn-loader', btn);
+    const status = qs('.form-status', form) || document.createElement('p');
+    if(!qs('.form-status', form)) {
+      status.className = 'form-status mt-4';
+      form.appendChild(status);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Simple Validation
+      if(!form.checkValidity()) {
+        form.reportValidity();
         return;
       }
-      // Serialize minimal info and redirect with encoded name param
-      const data = new URLSearchParams(new FormData(f)).toString();
-      window.location.href = `thank-you.html?${data}`;
+
+      // Show loading
+      btn.disabled = true;
+      const originalText = btnText.textContent;
+      if(btnText !== btn) btnText.style.display = 'none';
+      if(btnLoader) btnLoader.style.display = 'block';
+      else btn.textContent = 'Sending...';
+
+      status.className = 'form-status mt-4';
+      status.textContent = 'Sending your request...';
+
+      const formData = new FormData(form);
+      const params = Object.fromEntries(formData.entries());
+
+      // If Public Key is still placeholder, simulate success for demo
+      if(EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+        console.warn("EmailJS is in simulation mode. Replace placeholders in js/app.js with real keys.");
+        setTimeout(() => {
+          status.textContent = 'Simulation: Request sent successfully!';
+          status.classList.add('success');
+          successCallback(params);
+        }, 1500);
+        return;
+      }
+
+      emailjs.send(EMAILJS_SERVICE_ID, templateId, params)
+        .then(() => {
+          status.textContent = 'Success! Your message has been sent.';
+          status.classList.add('success');
+          successCallback(params);
+        })
+        .catch((err) => {
+          console.error("EmailJS Error:", err);
+          status.textContent = 'Failed to send. Please try again or contact us via WhatsApp.';
+          status.classList.add('error');
+          btn.disabled = false;
+          if(btnText !== btn) btnText.style.display = 'inline';
+          if(btnLoader) btnLoader.style.display = 'none';
+          else btn.textContent = originalText;
+        });
     });
   };
-  handleForm('contact-form');
-  handleForm('order-form');
+
+  const onOrderSuccess = (params) => {
+    const name = params.user_name || 'Creative';
+    setTimeout(() => {
+      window.location.href = `thank-you.html?name=${encodeURIComponent(name)}&type=order`;
+    }, 1000);
+  };
+
+  const onContactSuccess = (params) => {
+    const name = params.name || 'Friend';
+    setTimeout(() => {
+      window.location.href = `thank-you.html?name=${encodeURIComponent(name)}&type=contact`;
+    }, 1000);
+  };
+
+  handleFormSubmission('#order-form', EMAILJS_ORDER_TEMPLATE, onOrderSuccess);
+  handleFormSubmission('#contact-form', EMAILJS_CONTACT_TEMPLATE, onContactSuccess);
+
+  // FAQ Accordion
+  qsa('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parent = btn.parentElement;
+      const open = parent.classList.toggle('open');
+      const content = parent.querySelector('.faq-a');
+      if (open) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        const chev = btn.querySelector('.chev');
+        if (chev) chev.textContent = '−';
+      } else {
+        content.style.maxHeight = null;
+        const chev = btn.querySelector('.chev');
+        if (chev) chev.textContent = '+';
+      }
+    });
+  });
 
   // Close any mobile nav when resizing to desktop
   window.addEventListener('resize', ()=>{

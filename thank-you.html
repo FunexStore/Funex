@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Thank You — Funex Studio</title>
-  <meta name="description" content="Thank you — your message or order has been received." />
+  <meta name="description" content="Thank you — your request has been received." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/app.js"></script>
@@ -48,11 +48,50 @@
     </div>
   </header>
 
-  <main class="container center thank-you">
-    <img src="images/logos/logo.svg" alt="Funex Studio logo" class="logo-svg-large reveal">
-    <h1 class="reveal mb-2">Thanks — We received your message</h1>
-    <p class="reveal mb-4">We'll review your submission and get back to you within 24 business hours. If you submitted an order, check email/WhatsApp for next steps.</p>
-    <a href="index.html" class="btn btn-ghost reveal">Back to Home</a>
+  <main class="container section">
+    <div class="success-card glass p-8 reveal">
+      <div class="checkmark-wrapper">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+
+      <h1 class="mb-2">Thanks, <span id="user-name">Creative</span>!</h1>
+      <p id="success-msg" class="mb-6">We've received your request and will get back to you within 24 hours.</p>
+
+      <div id="project-timeline" class="timeline" style="display: none;">
+        <div class="timeline-item active">
+          <div class="timeline-content">
+            <h4>Request Received</h4>
+            <p>Your vision is now in our hands. We're reviewing the details.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>Creative Consultation</h4>
+            <p>We'll reach out via WhatsApp/Email to finalize the creative brief.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>Production Begins</h4>
+            <p>Our editors start crafting your masterpiece.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4>Final Delivery</h4>
+            <p>Cinematic results delivered right to your inbox.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-center gap-4 mt-8">
+        <a href="index.html" class="btn btn-ghost">Back to Home</a>
+        <a href="portfolio.html" class="btn btn-accent">View Portfolio</a>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -76,13 +115,32 @@
       </nav>
 
       <div class="footer-legal">
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="refund-policy.html">Refund Policy</a>
-        <a href="delivery-policy.html">Delivery Policy</a>
-        <a href="terms-and-conditions.html">Terms & Conditions</a>
+        <div class="legal-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="refund-policy.html">Refund Policy</a>
+          <a href="delivery-policy.html">Delivery Policy</a>
+          <a href="terms-and-conditions.html">Terms & Conditions</a>
+        </div>
         <p class="copyright">© <span id="year"></span> Funex Studio. All rights reserved.</p>
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get('name');
+      const type = params.get('type');
+
+      if (name) {
+        document.getElementById('user-name').textContent = name;
+      }
+
+      if (type === 'order') {
+        document.getElementById('project-timeline').style.display = 'block';
+        document.getElementById('success-msg').textContent = "Your project request is being processed. Here's what happens next:";
+      }
+    });
+  </script>
 </body>
 </html>
