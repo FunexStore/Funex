@@ -191,7 +191,7 @@ p {
 
 .btn-ghost:hover {
   background: var(--text);
-  color: var(--bg);
+  color: var(--bg-offset);
   border-color: var(--text);
   transform: translateY(-3px);
 }
@@ -257,7 +257,7 @@ p {
   top: 0;
   z-index: 1000;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
@@ -265,6 +265,14 @@ p {
   display: flex;
   align-items: center;
   transition: background 0.3s ease;
+}
+
+body:not(.light-mode) .site-header {
+  background: rgba(11, 11, 11, 0.8);
+}
+
+body.light-mode .site-header {
+  background: rgba(245, 241, 232, 0.8);
 }
 
 .back-link {
@@ -352,6 +360,10 @@ p {
   flex-direction: column;
   padding: var(--space-4) var(--space-3);
   transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.nav-open {
+  overflow: hidden;
 }
 
 body.nav-open .main-nav {
@@ -1146,6 +1158,7 @@ body.nav-open .main-nav {
 
 .radio-content {
   padding: var(--space-3);
+  background: var(--card);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   text-align: center;
@@ -1189,6 +1202,7 @@ body.nav-open .main-nav {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3);
+  background: var(--card);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
   cursor: pointer;
@@ -1382,7 +1396,7 @@ body.nav-open .main-nav {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--charcoal);
+  background: var(--glass-border);
 }
 
 .timeline-item {
@@ -1398,8 +1412,8 @@ body.nav-open .main-nav {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--charcoal);
-  border: 2px solid var(--black);
+  background: var(--bg-offset);
+  border: 2px solid var(--glass-border);
   z-index: 1;
 }
 
@@ -1412,12 +1426,12 @@ body.nav-open .main-nav {
 .timeline-content h4 {
   font-size: 1rem;
   margin-bottom: 0.25rem;
-  color: var(--white);
+  color: var(--text);
 }
 
 .timeline-content p {
   font-size: 0.875rem;
-  color: var(--grey);
+  color: var(--text-dim);
 }
 
 .form-label-text {
@@ -1428,7 +1442,7 @@ body.nav-open .main-nav {
 
 .form-input {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
   padding: 12px;
@@ -1440,7 +1454,7 @@ body.nav-open .main-nav {
 .form-input:focus {
   outline: none;
   border-color: var(--accent);
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--bg-offset);
 }
 
 .form-textarea {

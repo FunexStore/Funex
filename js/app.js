@@ -284,8 +284,9 @@
         const targetPage = isBuilder ? 'confirmation.html' : 'thank-you.html';
         const typeParam = isBuilder ? '' : '&type=contact';
 
-        // Build the URL
-        let redirectUrl = `${window.location.origin}/${targetPage}?name=${encodeURIComponent(name)}`;
+        // Build the URL correctly even for subdirectories (GitHub Pages)
+        const baseUrl = window.location.href.split('/').slice(0, -1).join('/');
+        let redirectUrl = `${baseUrl}/${targetPage}?name=${encodeURIComponent(name)}`;
         if (isBuilder) {
           redirectUrl += `&id=${encodeURIComponent(id)}&cost=${encodeURIComponent(cost)}`;
         } else {
