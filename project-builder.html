@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project Builder — Funex Studio</title>
+  <meta name="description" content="Customize your cinematic project and receive an instant estimate." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/app.js"></script>
+</head>
+<body class="site-body">
+  <header class="site-header inner-page" id="site-header">
+    <div class="nav-inner">
+      <div class="back-link">←</div>
+      <a class="brand" href="index.html" aria-label="Funex Studio home">
+        <div class="logo-placeholder"></div>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <div class="mobile-nav-header">
+          <a class="brand" href="index.html">
+            <div class="logo-placeholder"></div>
+          </a>
+          <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
+        </div>
+        <ul class="nav-main-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="work.html" class="nav-link">Work</a></li>
+          <li><a href="services-pricing.html" class="nav-link">Services</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-settings-section">
+          <div class="settings-divider"><span>⚙ Settings</span></div>
+          <ul class="nav-settings-links">
+            <li><button class="nav-settings-btn theme-toggle-nav">Theme: <span class="theme-status">Dark</span></button></li>
+            <li><a href="services-pricing.html#faq" class="nav-link">FAQ</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="nav-cta">
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero-sm container">
+      <div class="section-header">
+        <h1 class="reveal">Project Builder</h1>
+        <p class="reveal">Customize your vision and get an instant estimate.</p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="order-layout">
+        <div class="project-config reveal">
+          <div class="glass p-6 mb-4">
+            <h2 class="h3 mb-4">1. Project Configuration</h2>
+            <div class="form-grid-2">
+              <div class="form-label col-span-full">
+                <span class="form-label-text">Service Type</span>
+                <select id="pb-service" class="form-input">
+                  <option value="music-video">Music Video</option>
+                  <option value="youtube">YouTube Video</option>
+                  <option value="reels">Reels & Shorts</option>
+                </select>
+              </div>
+
+              <div class="form-label col-span-full">
+                <span class="form-label-text">Package</span>
+                <div class="package-radio-group mt-2">
+                  <label class="package-radio">
+                    <input type="radio" name="pb-package" value="starter" checked>
+                    <div class="radio-content">
+                      <span class="radio-name">Starter</span>
+                      <span class="radio-desc">Essential editing</span>
+                    </div>
+                  </label>
+                  <label class="package-radio">
+                    <input type="radio" name="pb-package" value="pro">
+                    <div class="radio-content">
+                      <span class="radio-name">Pro</span>
+                      <span class="radio-desc">Cinematic polish</span>
+                    </div>
+                  </label>
+                  <label class="package-radio">
+                    <input type="radio" name="pb-package" value="premium">
+                    <div class="radio-content">
+                      <span class="radio-name">Premium</span>
+                      <span class="radio-desc">High-end production</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-label col-span-full">
+                <span class="form-label-text">Video Length</span>
+                <select id="pb-length" class="form-input">
+                  <option value="under-1">Under 1 minute</option>
+                  <option value="1-3">1 - 3 minutes</option>
+                  <option value="3-10">3 - 10 minutes</option>
+                  <option value="over-10">Over 10 minutes</option>
+                </select>
+              </div>
+
+              <div class="form-label col-span-full">
+                <span class="form-label-text">Add-ons</span>
+                <div class="addons-grid mt-2">
+                  <label class="addon-checkbox">
+                    <input type="checkbox" id="add-motion" data-price="1000">
+                    <span class="checkbox-box"></span>
+                    <span class="addon-name">Motion Graphics</span>
+                    <span class="addon-price">+₹1000</span>
+                  </label>
+                  <label class="addon-checkbox">
+                    <input type="checkbox" id="add-subtitles" data-price="500">
+                    <span class="checkbox-box"></span>
+                    <span class="addon-name">Subtitles</span>
+                    <span class="addon-price">+₹500</span>
+                  </label>
+                  <label class="addon-checkbox">
+                    <input type="checkbox" id="add-color" data-price="500">
+                    <span class="checkbox-box"></span>
+                    <span class="addon-name">Advanced Color</span>
+                    <span class="addon-price">+₹500</span>
+                  </label>
+                  <label class="addon-checkbox">
+                    <input type="checkbox" id="add-sound" data-price="1000">
+                    <span class="checkbox-box"></span>
+                    <span class="addon-name">Sound Design</span>
+                    <span class="addon-price">+₹1000</span>
+                  </label>
+                  <label class="addon-checkbox">
+                    <input type="checkbox" id="add-rush" data-price="1500">
+                    <span class="checkbox-box"></span>
+                    <span class="addon-name">Rush Delivery</span>
+                    <span class="addon-price">+₹1500</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass p-6 mb-4">
+            <h2 class="h3 mb-4">2. Client Information</h2>
+            <form id="project-builder-form" action="https://formsubmit.co/5awaixai@gmail.com" method="POST">
+              <!-- FormSubmit config -->
+              <input type="hidden" name="_subject" value="New Project Request - Funex Studio">
+              <input type="hidden" name="_next" value="https://funexstudio.com/thank-you.html">
+              <input type="text" name="_honey" style="display:none">
+
+              <!-- Project Data (Filled via JS) -->
+              <input type="hidden" name="project_id" id="hidden-project-id">
+              <input type="hidden" name="selected_service" id="hidden-service">
+              <input type="hidden" name="selected_package" id="hidden-package">
+              <input type="hidden" name="selected_length" id="hidden-length">
+              <input type="hidden" name="selected_addons" id="hidden-addons">
+              <input type="hidden" name="estimated_cost" id="hidden-total">
+
+              <div class="form-grid-2">
+                <label class="form-label">
+                  <span class="form-label-text">Full Name</span>
+                  <input name="name" type="text" required class="form-input" placeholder="Enter your name">
+                </label>
+                <label class="form-label">
+                  <span class="form-label-text">Email Address</span>
+                  <input name="email" type="email" required class="form-input" placeholder="email@example.com">
+                </label>
+                <label class="form-label">
+                  <span class="form-label-text">WhatsApp Number</span>
+                  <input name="whatsapp" type="tel" required class="form-input" placeholder="+91 ...">
+                </label>
+                <label class="form-label">
+                  <span class="form-label-text">Project Deadline</span>
+                  <input name="deadline" type="date" required class="form-input">
+                </label>
+                <label class="form-label col-span-full">
+                  <span class="form-label-text">Project Description</span>
+                  <textarea name="description" rows="4" required class="form-input form-textarea" placeholder="Tell us about your project..."></textarea>
+                </label>
+                <label class="form-label col-span-full">
+                  <span class="form-label-text">Reference Video Link</span>
+                  <input name="reference_link" type="url" class="form-input" placeholder="YouTube/Vimeo link">
+                </label>
+                <label class="form-label col-span-full">
+                  <span class="form-label-text">Google Drive Footage Link</span>
+                  <input name="footage_link" type="url" required class="form-input" placeholder="Drive/Dropbox link">
+                </label>
+                <div class="form-actions col-span-full mt-4">
+                  <button type="submit" class="btn btn-accent w-full" id="submit-project-btn">
+                    <span class="btn-text">Submit Project Request</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="sticky-summary project-summary reveal">
+          <div class="glass p-6">
+            <h2 class="h3 mb-4">Project Summary</h2>
+            <div class="summary-details">
+              <div class="summary-item">
+                <span class="summary-label">Project ID:</span>
+                <span class="summary-value text-accent" id="summary-id">FS-XXXX</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Service:</span>
+                <span class="summary-value" id="summary-service">Music Video</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Package:</span>
+                <span class="summary-value" id="summary-package">Starter</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Length:</span>
+                <span class="summary-value" id="summary-length">Under 1 minute</span>
+              </div>
+              <div class="summary-item flex-col items-start border-top pt-4">
+                <span class="summary-label mb-2">Selected Add-ons:</span>
+                <ul class="summary-addons list-disc text-sm" id="summary-addons">
+                  <li class="text-dim italic">None</li>
+                </ul>
+              </div>
+              <div class="summary-item border-top pt-4 mt-2">
+                <span class="summary-label text-lg font-bold">Estimated Total:</span>
+                <span class="summary-value text-2xl text-accent font-black" id="summary-total">₹2,999</span>
+              </div>
+            </div>
+            <p class="text-xs text-dim mt-4 italic text-center">Final cost may vary after scope review.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="logo-placeholder"></div>
+        <div class="brand-text-compact">
+          <small>Turning Imaginations Into Reality</small>
+        </div>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="services-pricing.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="footer-legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="refund-policy.html">Refund Policy</a>
+        <a href="delivery-policy.html">Delivery Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+        <p class="copyright">© <span id="year"></span> Funex Studio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

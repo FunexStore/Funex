@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Refund Policy — Funex Studio</title>
-  <meta name="description" content="Refund policy for Funex Studio." />
+  <title>Project Received — Funex Studio</title>
+  <meta name="description" content="Thank you — your project request has been received." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/app.js"></script>
@@ -49,27 +49,33 @@
     </div>
   </header>
 
-  <main>
-    <section class="section hero-sm container">
-      <div class="section-header">
-        <h1 class="reveal">Refund Policy</h1>
-        <p class="reveal">Our commitment to satisfaction and fair trade.</p>
+  <main class="container thank-you">
+    <div class="success-card glass p-8 reveal text-center">
+      <div class="checkmark-wrapper">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
       </div>
-    </section>
 
-    <section class="section container">
-      <div class="content-narrow">
-        <div class="glass reveal p-6">
-        <p class="mb-4">Funex Studio aims for client satisfaction. Refunds are considered on a case-by-case basis and depend on the project stage, payments made and the work delivered.</p>
+      <h1 class="mb-2">Project Request Submitted</h1>
+      <p class="mb-8">Thank you, <span id="display-name" class="text-accent">Creative</span>! Your vision is now in our hands.</p>
 
-        <h2 class="mb-2 mt-4">Scope</h2>
-        <p class="mb-4">If a client is unsatisfied and the issue cannot be resolved through revisions, a partial refund may be offered for unrendered work or non-delivered assets.</p>
-
-        <h2 class="mb-2 mt-4">How to request a refund</h2>
-        <p>Contact us at <a href="mailto:5awaixai@gmail.com">5awaixai@gmail.com</a> and include your order reference and clear explanation. We respond within 5 business days.</p>
+      <div class="glass p-6 mb-8 inline-block mx-auto" style="min-width: 280px;">
+        <div class="mb-4">
+          <span class="text-dim text-xs uppercase letter-spacing-1">Project ID</span>
+          <div class="text-accent font-black text-2xl" id="display-id">FS-XXXX</div>
+        </div>
+        <div>
+          <span class="text-dim text-xs uppercase letter-spacing-1">Estimated Cost</span>
+          <div class="text-white font-black text-2xl" id="display-cost">₹0</div>
         </div>
       </div>
-    </section>
+
+      <p class="text-dim text-sm max-width-600 mx-auto mb-8">We will review your requirements and contact you shortly via WhatsApp or Email to confirm the final scope and timeline.</p>
+
+      <a href="index.html" class="btn btn-accent">Return Home</a>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -77,7 +83,6 @@
       <div class="footer-brand">
         <div class="logo-placeholder"></div>
         <div class="brand-text-compact">
-
           <small>Turning Imaginations Into Reality</small>
         </div>
       </div>
@@ -85,7 +90,7 @@
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="work.html">Work</a>
-        <a href="services-pricing.html">Services & Pricing</a>
+        <a href="services-pricing.html">Services</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -99,5 +104,14 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if(params.has('name')) document.getElementById('display-name').textContent = params.get('name');
+      if(params.has('id')) document.getElementById('display-id').textContent = params.get('id');
+      if(params.has('cost')) document.getElementById('display-cost').textContent = params.get('cost');
+    });
+  </script>
 </body>
 </html>

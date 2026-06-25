@@ -9,30 +9,36 @@
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/app.js"></script>
 </head>
-<body class="site-dark">
-  <header class="site-header" id="site-header">
+<body class="site-body">
+  <header class="site-header inner-page" id="site-header">
     <div class="nav-inner">
+      <div class="back-link">←</div>
       <a class="brand" href="index.html" aria-label="Funex Studio home">
-        <img src="images/logos/logo.svg" alt="Funex Studio logo" class="logo-svg">
-        <span class="brand-text">FUNEX STUDIO</span>
+        <div class="logo-placeholder"></div>
       </a>
 
       <nav class="main-nav" id="main-nav">
         <div class="mobile-nav-header">
           <a class="brand" href="index.html">
-            <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
-            <span class="brand-text">FUNEX STUDIO</span>
+            <div class="logo-placeholder"></div>
           </a>
           <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
         </div>
-        <ul>
+        <ul class="nav-main-links">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="work.html" class="nav-link">Work</a></li>
-          <li><a href="services-pricing.html" class="nav-link">Services & Pricing</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services-pricing.html" class="nav-link">Services</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
 
+        <div class="nav-settings-section">
+          <div class="settings-divider"><span>⚙ Settings</span></div>
+          <ul class="nav-settings-links">
+            <li><button class="nav-settings-btn theme-toggle-nav">Theme: <span class="theme-status">Dark</span></button></li>
+            <li><a href="services-pricing.html#faq" class="nav-link">FAQ</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </div>
       </nav>
 
       <div class="nav-cta">
@@ -92,9 +98,9 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+        <div class="logo-placeholder"></div>
         <div class="brand-text-compact">
-          <strong>FUNEX STUDIO</strong>
+
           <small>Turning Imaginations Into Reality</small>
         </div>
       </div>
