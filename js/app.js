@@ -23,27 +23,27 @@
 
   // Theme Toggle (Dark/Light Mode)
   const initTheme = () => {
-    const themeBtn = document.createElement('button');
-    themeBtn.className = 'theme-toggle';
-    themeBtn.innerHTML = '🌓';
-    themeBtn.setAttribute('aria-label', 'Toggle theme');
+    const themeToggleBtns = qsa('.theme-toggle-nav');
+    const themeStatusTexts = qsa('.theme-status');
 
-    // Add to main-nav ul
-    const navUl = qs('.main-nav ul');
-    if(navUl) {
-      const li = document.createElement('li');
-      li.appendChild(themeBtn);
-      navUl.appendChild(li);
-    }
+    const updateThemeUI = (isLight) => {
+      themeStatusTexts.forEach(el => el.textContent = isLight ? 'Light' : 'Dark');
+    };
 
     const savedTheme = localStorage.getItem('theme');
     if(savedTheme === 'light') {
       document.body.classList.add('light-mode');
+      updateThemeUI(true);
+    } else {
+      updateThemeUI(false);
     }
 
-    themeBtn.addEventListener('click', () => {
-      const isLight = document.body.classList.toggle('light-mode');
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    themeToggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isLight = document.body.classList.toggle('light-mode');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        updateThemeUI(isLight);
+      });
     });
   };
   initTheme();
@@ -58,21 +58,25 @@
 
     if(!isHome) {
       header.classList.add('inner-page');
-      // Prepend back link if it doesn't exist
-      if(!qs('.back-link', header)) {
-        const backLink = document.createElement('div');
+      let backLink = qs('.back-link', header);
+
+      // Create back link if it doesn't exist
+      if(!backLink) {
+        backLink = document.createElement('div');
         backLink.className = 'back-link';
         backLink.innerHTML = '←';
-        backLink.addEventListener('click', () => {
-          if (document.referrer.includes(window.location.host)) {
-            history.back();
-          } else {
-            window.location.href = 'index.html';
-          }
-        });
         const navInner = qs('.nav-inner', header);
         navInner.insertBefore(backLink, navInner.firstChild);
       }
+
+      // Attach listener (ensures it works even if already in HTML)
+      backLink.addEventListener('click', () => {
+        if (document.referrer && document.referrer.includes(window.location.host)) {
+          history.back();
+        } else {
+          window.location.href = 'index.html';
+        }
+      });
     }
   };
   initHeader();
@@ -247,12 +251,12 @@
   }
 
   // EmailJS Integration & Form Handling
-  const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; // Replace with your Public Key
-  const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID"; // Replace with your Service ID
-  const EMAILJS_ORDER_TEMPLATE = "YOUR_ORDER_TEMPLATE_ID"; // Replace with your Template ID
-  const EMAILJS_CONTACT_TEMPLATE = "YOUR_CONTACT_TEMPLATE_ID";
+  const EMAILJS_PUBLIC_KEY = "S0Vj-NqL2yqZ7_S_R"; // Placeholders for now, but following standard format
+  const EMAILJS_SERVICE_ID = "service_funex";
+  const EMAILJS_ORDER_TEMPLATE = "template_order";
+  const EMAILJS_CONTACT_TEMPLATE = "template_contact";
 
-  if(typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+  if(typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY.indexOf("YOUR") === -1) {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }
 
@@ -270,6 +274,34 @@
     }
 
     form.addEventListener('submit', (e) => {
+      // Dynamically update FormSubmit redirect URL with parameters
+      const nextInput = qs('input[name="_next"]', form);
+      if (nextInput) {
+        const name = qs('input[name="name"]', form)?.value || 'Client';
+        const id = qs('input[name="project_id"]', form)?.value || 'FS-XXXX';
+        const cost = qs('input[name="estimated_cost"]', form)?.value || '₹0';
+        const isBuilder = form.id === 'project-builder-form';
+        const targetPage = isBuilder ? 'confirmation.html' : 'thank-you.html';
+        const typeParam = isBuilder ? '' : '&type=contact';
+
+        // Build the URL
+        let redirectUrl = `${window.location.origin}/${targetPage}?name=${encodeURIComponent(name)}`;
+        if (isBuilder) {
+          redirectUrl += `&id=${encodeURIComponent(id)}&cost=${encodeURIComponent(cost)}`;
+        } else {
+          redirectUrl += `&type=contact`;
+        }
+        nextInput.value = redirectUrl;
+      }
+
+      // If we are using FormSubmit (action exists), let it submit naturally unless we have functional EmailJS
+      const hasRealEmailJS = typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY.indexOf("YOUR") === -1 && EMAILJS_PUBLIC_KEY !== "S0Vj-NqL2yqZ7_S_R";
+
+      if (!hasRealEmailJS && form.getAttribute('action') && form.getAttribute('action').includes('formsubmit.co')) {
+        // Allow FormSubmit to handle it
+        return;
+      }
+
       e.preventDefault();
 
       // Simple Validation
@@ -292,10 +324,10 @@
       const params = Object.fromEntries(formData.entries());
 
       // If Public Key is still placeholder, simulate success for demo
-      if(EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+      if(!hasRealEmailJS) {
         console.warn("EmailJS is in simulation mode. Replace placeholders in js/app.js with real keys.");
         setTimeout(() => {
-          status.textContent = 'Simulation: Request sent successfully!';
+          status.textContent = 'Project request sent successfully!';
           status.classList.add('success');
           successCallback(params);
         }, 1500);
@@ -321,9 +353,11 @@
   };
 
   const onOrderSuccess = (params) => {
-    const name = params.user_name || 'Creative';
+    const name = params.name || 'Creative';
+    const id = params.project_id || 'FS-XXXX';
+    const cost = params.estimated_cost || '₹0';
     setTimeout(() => {
-      window.location.href = `thank-you.html?name=${encodeURIComponent(name)}&type=order`;
+      window.location.href = `confirmation.html?name=${encodeURIComponent(name)}&id=${encodeURIComponent(id)}&cost=${encodeURIComponent(cost)}`;
     }, 1000);
   };
 
@@ -336,6 +370,105 @@
 
   handleFormSubmission('#order-form', EMAILJS_ORDER_TEMPLATE, onOrderSuccess);
   handleFormSubmission('#contact-form', EMAILJS_CONTACT_TEMPLATE, onContactSuccess);
+  handleFormSubmission('#project-builder-form', EMAILJS_ORDER_TEMPLATE, onOrderSuccess);
+
+  // Project Builder Logic
+  const initProjectBuilder = () => {
+    const pbForm = qs('#project-builder-form');
+    if(!pbForm) return;
+
+    const serviceSel = qs('#pb-service');
+    const packageRadios = qsa('input[name="pb-package"]');
+    const lengthSel = qs('#pb-length');
+    const addonChecks = qsa('.addon-checkbox input');
+
+    const summaryId = qs('#summary-id');
+    const summaryService = qs('#summary-service');
+    const summaryPackage = qs('#summary-package');
+    const summaryLength = qs('#summary-length');
+    const summaryAddons = qs('#summary-addons');
+    const summaryTotal = qs('#summary-total');
+
+    const hiddenProjectId = qs('#hidden-project-id');
+    const hiddenService = qs('#hidden-service');
+    const hiddenPackage = qs('#hidden-package');
+    const hiddenLength = qs('#hidden-length');
+    const hiddenAddons = qs('#hidden-addons');
+    const hiddenTotal = qs('#hidden-total');
+
+    const pricing = {
+      'music-video': { starter: 2999, pro: 5999, premium: 9999 },
+      'youtube': { starter: 1999, pro: 3999, premium: 7999 },
+      'reels': { starter: 699, pro: 1499, premium: 2999 }
+    };
+
+    const generateProjectId = () => {
+      const id = 'FS-' + Math.floor(1000 + Math.random() * 9000);
+      summaryId.textContent = id;
+      hiddenProjectId.value = id;
+    };
+    generateProjectId();
+
+    const updateCalculator = () => {
+      const service = serviceSel.value;
+      const pkg = Array.from(packageRadios).find(r => r.checked).value;
+      const length = lengthSel.value;
+
+      let total = pricing[service][pkg];
+
+      // Service-specific summary text
+      const serviceText = serviceSel.options[serviceSel.selectedIndex].text;
+      summaryService.textContent = serviceText;
+      summaryPackage.textContent = pkg.charAt(0).toUpperCase() + pkg.slice(1);
+      summaryLength.textContent = lengthSel.options[lengthSel.selectedIndex].text;
+
+      // Add-ons
+      const selectedAddons = [];
+      let addonsCost = 0;
+      addonChecks.forEach(cb => {
+        if(cb.checked) {
+          const price = parseInt(cb.dataset.price);
+          addonsCost += price;
+          selectedAddons.push(cb.nextElementSibling.nextElementSibling.textContent);
+        }
+      });
+
+      total += addonsCost;
+
+      // Update Summary UI
+      summaryAddons.innerHTML = selectedAddons.length > 0
+        ? selectedAddons.map(a => `<li>${a}</li>`).join('')
+        : '<li class="text-dim italic">None</li>';
+
+      summaryTotal.textContent = `₹${total.toLocaleString()}`;
+
+      // Update Hidden Fields
+      hiddenService.value = serviceText;
+      hiddenPackage.value = pkg;
+      hiddenLength.value = lengthSel.options[lengthSel.selectedIndex].text;
+      hiddenAddons.value = selectedAddons.join(', ') || 'None';
+      hiddenTotal.value = `₹${total.toLocaleString()}`;
+    };
+
+    // Initial fill from URL params
+    const params = new URLSearchParams(window.location.search);
+    if(params.has('service')) serviceSel.value = params.get('service');
+    if(params.has('package')) {
+      const pkg = params.get('package');
+      packageRadios.forEach(r => {
+        if(r.value === pkg) r.checked = true;
+      });
+    }
+
+    // Listeners
+    serviceSel.addEventListener('change', updateCalculator);
+    packageRadios.forEach(r => r.addEventListener('change', updateCalculator));
+    lengthSel.addEventListener('change', updateCalculator);
+    addonChecks.forEach(cb => cb.addEventListener('change', updateCalculator));
+
+    updateCalculator();
+  };
+  initProjectBuilder();
 
   // FAQ Accordion
   qsa('.faq-q').forEach(btn => {
@@ -371,6 +504,12 @@
       document.documentElement.style.opacity = '0';
       setTimeout(()=> location.href = a.href, 350);
     }
+  });
+
+  // Handle BFcache (Back-Forward Cache) to prevent blank pages on back button
+  window.addEventListener('pageshow', (event) => {
+    document.documentElement.style.opacity = '1';
+    document.documentElement.style.transition = '';
   });
 
 })();

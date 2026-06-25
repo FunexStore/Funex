@@ -11,7 +11,7 @@
   <script defer src="js/app.js"></script>
   <meta name="theme-color" content="#000000">
 </head>
-<body class="site-dark">
+<body class="site-body">
   <div id="preloader" class="preloader">
     <div class="preloader-inner">
       <svg width="64" height="64" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#22C55E"/><stop offset="1" stop-color="#16A34A"/></linearGradient></defs><rect x="10" y="10" width="80" height="80" rx="12" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dashoffset" dur="1.6s" repeatCount="indefinite" from="0" to="400"/></rect></svg>
@@ -21,25 +21,33 @@
   <header class="site-header" id="site-header">
     <div class="nav-inner">
       <a class="brand" href="index.html" aria-label="Funex Studio home">
-        <img src="images/logos/logo.svg" alt="Funex Studio logo" class="logo-svg">
-        <span class="brand-text">FUNEX STUDIO</span>
+        <div class="logo-placeholder"></div>
+
       </a>
 
       <nav class="main-nav" id="main-nav">
         <div class="mobile-nav-header">
           <a class="brand" href="index.html">
-            <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
-            <span class="brand-text">FUNEX STUDIO</span>
+            <div class="logo-placeholder"></div>
+
           </a>
           <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
         </div>
-        <ul>
+        <ul class="nav-main-links">
           <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="work.html" class="nav-link">Work</a></li>
-          <li><a href="services-pricing.html" class="nav-link">Services & Pricing</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services-pricing.html" class="nav-link">Services</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
+
+        <div class="nav-settings-section">
+          <div class="settings-divider"><span>⚙ Settings</span></div>
+          <ul class="nav-settings-links">
+            <li><button class="nav-settings-btn theme-toggle-nav">Theme: <span class="theme-status">Dark</span></button></li>
+            <li><a href="services-pricing.html#faq" class="nav-link">FAQ</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </div>
       </nav>
 
       <div class="nav-cta">
@@ -61,9 +69,16 @@
 
       <div class="hero-content container">
         <h1 class="hero-title reveal">FUNEX STUDIO</h1>
-        <p class="hero-sub reveal">Cinematic Editing for Artists & Creators<br>Music Videos • YouTube Videos • Reels & Shorts • Podcasts • Color Grading</p>
+        <p class="hero-sub reveal">Cinematic Editing for Artists & Creators</p>
+        <div class="hero-services reveal">
+          <span>Music Videos</span>
+          <span>YouTube Videos</span>
+          <span>Reels & Shorts</span>
+          <span>Podcasts</span>
+          <span>Color Grading</span>
+        </div>
         <div class="hero-actions reveal">
-          <a class="btn btn-accent" href="contact.html">Start Project</a>
+          <a class="btn btn-accent" href="services-pricing.html">Start Project</a>
           <a class="btn btn-ghost" href="work.html">View Work</a>
         </div>
       </div>
@@ -149,9 +164,9 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+        <div class="logo-placeholder"></div>
         <div class="brand-text-compact">
-          <strong>FUNEX STUDIO</strong>
+
           <small>Turning Imaginations Into Reality</small>
         </div>
       </div>

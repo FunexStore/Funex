@@ -9,29 +9,36 @@
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/app.js"></script>
 </head>
-<body class="site-dark">
-  <header class="site-header" id="site-header">
+<body class="site-body">
+  <header class="site-header inner-page" id="site-header">
     <div class="nav-inner">
+      <div class="back-link">←</div>
       <a class="brand" href="index.html" aria-label="Funex Studio home">
-        <img src="images/logos/logo.svg" alt="Funex Studio logo" class="logo-svg">
-        <span class="brand-text">FUNEX STUDIO</span>
+        <div class="logo-placeholder"></div>
       </a>
 
       <nav class="main-nav" id="main-nav">
         <div class="mobile-nav-header">
           <a class="brand" href="index.html">
-            <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
-            <span class="brand-text">FUNEX STUDIO</span>
+            <div class="logo-placeholder"></div>
           </a>
           <button class="nav-close" id="nav-close" aria-label="Close menu">×</button>
         </div>
-        <ul>
+        <ul class="nav-main-links">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="work.html" class="nav-link">Work</a></li>
-          <li><a href="services-pricing.html" class="nav-link active">Services & Pricing</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services-pricing.html" class="nav-link">Services</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
+
+        <div class="nav-settings-section">
+          <div class="settings-divider"><span>⚙ Settings</span></div>
+          <ul class="nav-settings-links">
+            <li><button class="nav-settings-btn theme-toggle-nav">Theme: <span class="theme-status">Dark</span></button></li>
+            <li><a href="services-pricing.html#faq" class="nav-link">FAQ</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </div>
       </nav>
 
       <div class="nav-cta">
@@ -84,41 +91,159 @@
     <!-- Pricing Section -->
     <section class="section pricing container">
       <div class="section-header center">
-        <h2 class="reveal">Pricing Plans</h2>
+        <h2 class="reveal">Choose Your Service</h2>
+        <p class="reveal">Professional cinematic editing tailored to your vision.</p>
       </div>
-      <div class="grid-1-2-3">
-        <div class="glass pricing-card reveal">
-          <h3>Reels & Shorts</h3>
-          <p class="price">₹699 – ₹5,000</p>
-          <ul>
-            <li>Up to 60 seconds</li>
-            <li>Cinematic transitions</li>
-            <li>Dynamic captions</li>
-            <li>Sound design & SFX</li>
-          </ul>
-          <a href="contact.html" class="btn btn-ghost">Start Project</a>
+
+      <div class="services-grid">
+        <!-- Music Video -->
+        <div class="glass service-selection-card reveal">
+          <div class="service-thumb">
+            <img src="https://images.unsplash.com/photo-1514525253361-bee8718a300a?auto=format&fit=crop&w=800&q=80" alt="Music Video">
+            <div class="service-badge">Music Video</div>
+          </div>
+          <div class="service-content">
+            <h3>Music Video Editing</h3>
+            <p>Rhythm-based cuts, stylistic color, and high-energy pacing.</p>
+            <div class="packages-list">
+              <div class="package-option">
+                <div class="package-info">
+                  <span class="package-name">Starter</span>
+                  <span class="package-price">₹2,999</span>
+                </div>
+                <ul class="package-features">
+                  <li>✓ Basic Color Correction</li>
+                  <li>✓ Rhythm Sync</li>
+                  <li>✓ 1080p Delivery</li>
+                </ul>
+                <a href="project-builder.html?service=music-video&package=starter" class="btn btn-ghost btn-sm">Select Starter</a>
+              </div>
+              <div class="package-option featured">
+                <div class="package-info">
+                  <span class="package-name">Pro</span>
+                  <span class="package-price">₹5,999</span>
+                </div>
+                <ul class="package-features">
+                  <li>✓ Cinematic Color Grade</li>
+                  <li>✓ Visual Effects</li>
+                  <li>✓ 4K Delivery</li>
+                </ul>
+                <a href="project-builder.html?service=music-video&package=pro" class="btn btn-accent btn-sm">Select Pro</a>
+              </div>
+              <div class="package-option">
+                <div class="package-info">
+                  <span class="package-name">Premium</span>
+                  <span class="package-price">₹9,999</span>
+                </div>
+                <ul class="package-features">
+                  <li>✓ Advanced Film Look</li>
+                  <li>✓ Custom Motion Graphics</li>
+                  <li>✓ Priority Support</li>
+                </ul>
+                <a href="project-builder.html?service=music-video&package=premium" class="btn btn-ghost btn-sm">Select Premium</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="glass pricing-card reveal">
-          <h3>YouTube Long-form</h3>
-          <p class="price">₹1,299 – ₹15,000</p>
-          <ul>
-            <li>Multi-cam syncing</li>
-            <li>Motion graphics</li>
-            <li>Professional color grade</li>
-            <li>Clean audio mix</li>
-          </ul>
-          <a href="contact.html" class="btn btn-ghost">Start Project</a>
+
+        <!-- YouTube Video -->
+        <div class="glass service-selection-card reveal">
+          <div class="service-thumb">
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80" alt="YouTube Video">
+            <div class="service-badge">YouTube</div>
+          </div>
+          <div class="service-content">
+            <h3>YouTube Video Editing</h3>
+            <p>Engaging storytelling with clean transitions and motion graphics.</p>
+            <div class="packages-list">
+              <div class="package-option">
+                <div class="package-info">
+                  <span class="package-name">Starter</span>
+                  <span class="package-price">₹1,999</span>
+                </div>
+                <ul class="package-features">
+                  <li>✓ Basic Cuts & Cleanup</li>
+                  <li>✓ Clean Audio</li>
+                  <li>✓ 1080p Delivery</li>
+                </ul>
+                <a href="project-builder.html?service=youtube&package=starter" class="btn btn-ghost btn-sm">Select Starter</a>
+              </div>
+              <div class="package-option featured">
+                <div class="package-info">
+                  <span class="package-name">Pro</span>
+                  <span class="package-price">₹3,999</span>
+                </div>
+                <ul class="package-features">
+                  <li>✓ B-Roll & Transitions</li>
+                  <li>✓ Basic Motion Graphics</li>
+                  <li>✓ Color Correction</li>
+                </ul>
+                <a href="project-builder.html?service=youtube&package=pro" class="btn btn-accent btn-sm">Select Pro</a>
+              </div>
+              <div class="package-option">
+                <div class="package-info">
+                  <span class="package-name">Premium</span>
+                  <span class="package-price">₹7,999</span>
+                </div>
+                <ul class="package-features">
+                  <li>✓ Advanced Storytelling</li>
+                  <li>✓ Custom Animations</li>
+                  <li>✓ Professional Color Grade</li>
+                </ul>
+                <a href="project-builder.html?service=youtube&package=premium" class="btn btn-ghost btn-sm">Select Premium</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="glass pricing-card reveal">
-          <h3>Music Videos</h3>
-          <p class="price">₹999 – ₹6,999</p>
-          <ul>
-            <li>Rhythm-based editing</li>
-            <li>Advanced film look</li>
-            <li>Stylized visual effects</li>
-            <li>Performance-focused cuts</li>
-          </ul>
-          <a href="contact.html" class="btn btn-ghost">Start Project</a>
+
+        <!-- Reels & Shorts -->
+        <div class="glass service-selection-card reveal">
+          <div class="service-thumb">
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80" alt="Reels & Shorts">
+            <div class="service-badge">Short-form</div>
+          </div>
+          <div class="service-content">
+            <h3>Reels & Shorts</h3>
+            <p>High-energy, attention-grabbing content for social platforms.</p>
+            <div class="packages-list">
+              <div class="package-option">
+                <div class="package-info">
+                  <span class="package-name">Starter</span>
+                  <span class="package-price">₹699</span>
+                </div>
+                <ul class="package-features">
+                  <li>✓ Viral Style Edits</li>
+                  <li>✓ Basic Captions</li>
+                  <li>✓ Fast Delivery</li>
+                </ul>
+                <a href="project-builder.html?service=reels&package=starter" class="btn btn-ghost btn-sm">Select Starter</a>
+              </div>
+              <div class="package-option featured">
+                <div class="package-info">
+                  <span class="package-name">Pro</span>
+                  <span class="package-price">₹1,499</span>
+                </div>
+                <ul class="package-features">
+                  <li>✓ Dynamic Captions</li>
+                  <li>✓ Sound SFX & Mix</li>
+                  <li>✓ Engaging Hooks</li>
+                </ul>
+                <a href="project-builder.html?service=reels&package=pro" class="btn btn-accent btn-sm">Select Pro</a>
+              </div>
+              <div class="package-option">
+                <div class="package-info">
+                  <span class="package-name">Premium</span>
+                  <span class="package-price">₹2,999</span>
+                </div>
+                <ul class="package-features">
+                  <li>✓ Alex Hormozi Style</li>
+                  <li>✓ Advanced Graphics</li>
+                  <li>✓ Batch Editing (3 Reels)</li>
+                </ul>
+                <a href="project-builder.html?service=reels&package=premium" class="btn btn-ghost btn-sm">Select Premium</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -165,9 +290,9 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="images/logos/logo.svg" alt="Logo" class="logo-svg">
+        <div class="logo-placeholder"></div>
         <div class="brand-text-compact">
-          <strong>FUNEX STUDIO</strong>
+
           <small>Turning Imaginations Into Reality</small>
         </div>
       </div>
