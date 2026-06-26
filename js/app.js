@@ -274,6 +274,9 @@
     }
 
     form.addEventListener('submit', (e) => {
+      const hasRealEmailJS = typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY.indexOf("YOUR") === -1 && EMAILJS_PUBLIC_KEY !== "S0Vj-NqL2yqZ7_S_R";
+      const isFormSubmit = form.getAttribute('action') && form.getAttribute('action').includes('formsubmit.co');
+
       // Dynamically update FormSubmit redirect URL with parameters
       const nextInput = qs('input[name="_next"]', form);
       if (nextInput) {
@@ -282,7 +285,6 @@
         const cost = qs('input[name="estimated_cost"]', form)?.value || '₹0';
         const isBuilder = form.id === 'project-builder-form';
         const targetPage = isBuilder ? 'confirmation.html' : 'thank-you.html';
-        const typeParam = isBuilder ? '' : '&type=contact';
 
         // Build the URL correctly even for subdirectories (GitHub Pages)
         const baseUrl = window.location.href.split('/').slice(0, -1).join('/');
@@ -295,11 +297,13 @@
         nextInput.value = redirectUrl;
       }
 
-      // If we are using FormSubmit (action exists), let it submit naturally unless we have functional EmailJS
-      const hasRealEmailJS = typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY.indexOf("YOUR") === -1 && EMAILJS_PUBLIC_KEY !== "S0Vj-NqL2yqZ7_S_R";
-
-      if (!hasRealEmailJS && form.getAttribute('action') && form.getAttribute('action').includes('formsubmit.co')) {
-        // Allow FormSubmit to handle it
+      // If we are using FormSubmit and don't have real EmailJS, submit naturally
+      if (!hasRealEmailJS && isFormSubmit) {
+        // We let the form submit naturally to ensure autoresponse works.
+        // We might want to show some local UI feedback before it unloads.
+        btn.disabled = true;
+        if(btnLoader) btnLoader.style.display = 'block';
+        if(btnText !== btn) btnText.style.display = 'none';
         return;
       }
 
@@ -357,19 +361,20 @@
     const name = params.name || 'Creative';
     const id = params.project_id || 'FS-XXXX';
     const cost = params.estimated_cost || '₹0';
+    const baseUrl = window.location.href.split('/').slice(0, -1).join('/');
     setTimeout(() => {
-      window.location.href = `confirmation.html?name=${encodeURIComponent(name)}&id=${encodeURIComponent(id)}&cost=${encodeURIComponent(cost)}`;
+      window.location.href = `${baseUrl}/confirmation.html?name=${encodeURIComponent(name)}&id=${encodeURIComponent(id)}&cost=${encodeURIComponent(cost)}`;
     }, 1000);
   };
 
   const onContactSuccess = (params) => {
     const name = params.name || 'Friend';
+    const baseUrl = window.location.href.split('/').slice(0, -1).join('/');
     setTimeout(() => {
-      window.location.href = `thank-you.html?name=${encodeURIComponent(name)}&type=contact`;
+      window.location.href = `${baseUrl}/thank-you.html?name=${encodeURIComponent(name)}&type=contact`;
     }, 1000);
   };
 
-  handleFormSubmission('#order-form', EMAILJS_ORDER_TEMPLATE, onOrderSuccess);
   handleFormSubmission('#contact-form', EMAILJS_CONTACT_TEMPLATE, onContactSuccess);
   handleFormSubmission('#project-builder-form', EMAILJS_ORDER_TEMPLATE, onOrderSuccess);
 
