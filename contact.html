@@ -60,11 +60,23 @@
     <section class="section container">
       <div class="content-narrow">
         <div class="glass reveal p-6">
-          <form action="https://formsubmit.co/5awaixai@gmail.com" method="POST" class="contact-form">
+          <form id="contact-form" action="https://formsubmit.co/5awaixai@gmail.com" method="POST" class="contact-form">
             <!-- Honeypot -->
             <input type="text" name="_honey" style="display:none">
             <!-- Success Redirect -->
             <input type="hidden" name="_next" value="https://funexstudio.com/thank-you.html">
+            <!-- FormSubmit config -->
+            <input type="hidden" name="_subject" value="New Contact Inquiry - Funex Store">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_autoresponse" value="Hi {{name}},
+
+Thank you for choosing Funex Store!
+
+We have successfully received your inquiry.
+
+Our team will review your message and contact you within 24 hours via WhatsApp or Email.
+
+Regards, Funex Store">
 
             <div class="form-grid-2">
               <label class="form-label">
