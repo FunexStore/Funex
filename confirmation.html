@@ -50,7 +50,7 @@
   </header>
 
   <main class="container thank-you">
-    <div class="success-card glass p-8 reveal text-center">
+    <div class="success-card glass p-10 reveal text-center">
       <div class="checkmark-wrapper">
         <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
           <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
@@ -58,23 +58,27 @@
         </svg>
       </div>
 
-      <h1 class="mb-2">Project Request Submitted</h1>
-      <p class="mb-8">Thank you, <span id="display-name" class="text-accent">Creative</span>! Your vision is now in our hands.</p>
+      <h1 class="mb-4">Project Request Submitted</h1>
+      <p class="mb-10 text-lg">Thank you, <span id="display-name" class="text-accent font-bold">Creative</span>!<br>Your vision is now in our hands.</p>
 
-      <div class="glass p-6 mb-8 inline-block mx-auto" style="min-width: 280px;">
-        <div class="mb-4">
-          <span class="text-dim text-xs uppercase letter-spacing-1">Project ID</span>
-          <div class="text-accent font-black text-2xl" id="display-id">FS-XXXX</div>
+      <div class="grid-1-2-3 mb-10" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+        <div class="glass p-6">
+          <span class="text-dim text-xs uppercase letter-spacing-1 block mb-2">Project ID</span>
+          <div class="text-accent font-black text-3xl" id="display-id">FS-XXXX</div>
         </div>
-        <div>
-          <span class="text-dim text-xs uppercase letter-spacing-1">Estimated Cost</span>
-          <div class="text-white font-black text-2xl" id="display-cost">₹0</div>
+        <div class="glass p-6 col-span-2">
+          <span class="text-dim text-xs uppercase letter-spacing-1 block mb-2">Estimated Cost</span>
+          <div class="text-white font-black text-3xl" id="display-cost">₹0</div>
         </div>
       </div>
 
-      <p class="text-dim text-sm max-width-600 mx-auto mb-8">We will review your requirements and contact you shortly via WhatsApp or Email to confirm the final scope and timeline.</p>
+      <div class="content-narrow mb-10">
+        <p class="text-dim">We will review your requirements and contact you <strong>within 24 hours</strong> via WhatsApp or Email to confirm the final scope and timeline.</p>
+      </div>
 
-      <a href="index.html" class="btn btn-accent">Return Home</a>
+      <div class="flex justify-center gap-4">
+        <a href="index.html" class="btn btn-accent">Return Home</a>
+      </div>
     </div>
   </main>
 

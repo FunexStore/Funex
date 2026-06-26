@@ -87,7 +87,19 @@
   const mainNav = qs('.main-nav');
 
   const toggleNav = (force) => {
-    document.body.classList.toggle('nav-open', force);
+    const isOpen = document.body.classList.contains('nav-open');
+    const newState = typeof force === 'boolean' ? force : !isOpen;
+
+    if (newState) {
+      const scrollY = window.scrollY;
+      document.body.style.top = `-${scrollY}px`;
+      document.body.classList.add('nav-open');
+    } else {
+      const scrollY = parseInt(document.body.style.top || '0') * -1;
+      document.body.classList.remove('nav-open');
+      document.body.style.top = '';
+      window.scrollTo(0, scrollY);
+    }
   };
 
   hamburgers.forEach(hamburger => {
@@ -282,7 +294,7 @@
       if (nextInput) {
         const name = qs('input[name="name"]', form)?.value || 'Client';
         const id = qs('input[name="project_id"]', form)?.value || 'FS-XXXX';
-        const cost = qs('input[name="estimated_cost"]', form)?.value || '₹0';
+        const cost = qs('input[name="cost"]', form)?.value || qs('input[name="estimated_cost"]', form)?.value || '₹0';
         const isBuilder = form.id === 'project-builder-form';
         const targetPage = isBuilder ? 'confirmation.html' : 'thank-you.html';
 
